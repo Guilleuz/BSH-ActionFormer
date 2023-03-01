@@ -33,8 +33,8 @@ import json
 
 
 # Converts an HH:MM:SS:HH timestamp to SS:HH
-def get_seconds(timpestamp):
-    splits = timpestamp.split(':')
+def get_seconds(timestamp):
+    splits = timestamp.split(':')
     hours = float(splits[0])
     minutes = float(splits[1])
     seconds = float(splits[2])
@@ -50,12 +50,15 @@ def convert_annotations(input_file, output_file):
     file = open(input_file)
     csv_reader = csv.DictReader(file, delimiter=',')
 
+    # Previous video's name
     prev_video = ""
+    # List of noun/verb annotations in a video
     noun_annotations = []
     verb_annotations = []
 
-    noun_database = []
-    verb_database = []
+    # List of noun/verb information from different videos
+    noun_database = dict()
+    verb_database = dict()
 
     for row in csv_reader:
         # If we read an action corresponding to a new video
@@ -63,7 +66,6 @@ def convert_annotations(input_file, output_file):
             # If the last video was not empty, we save its annotations
             if prev_video != "":
                 # TODO Get the videos' duration and resolution
-
                 video_dict_nouns = {
                     prev_video: {
                         "annotations": noun_annotations,
@@ -82,10 +84,10 @@ def convert_annotations(input_file, output_file):
                     }
                 }
 
-                noun_database.append(video_dict_nouns)
-                verb_database.append(video_dict_verbs)
+                noun_database.update(video_dict_nouns)
+                verb_database.update(video_dict_verbs)
 
-            # Get the new name
+            # Get the new videos' name, create empty annotation lists
             prev_video = row["video_id"]
             noun_annotations = []
             verb_annotations = []
@@ -118,9 +120,14 @@ def convert_annotations(input_file, output_file):
         # Append the dictionary to the videos' list
         verb_annotations.append(verb_dict)
 
-    noun_database_complete = {"version": output_file, "database": noun_database}
-    verb_database_complete = {"version": output_file, "database": verb_database}
-    print(json.dumps(noun_database_complete))
+    # Create and write the final json files for noun and verb annotations
+    noun_database_complete = {"version": output_file + "_noun", "database": noun_database}
+    verb_database_complete = {"version": output_file + "verb", "database": verb_database}
+
+    noun_output = open(output_file_nouns, 'w+')
+    json.dump(noun_database_complete, noun_output)
+    verb_output = open(output_file_verbs, 'w+')
+    json.dump(verb_database_complete, verb_output)
 
 
 if __name__ == "__main__":
