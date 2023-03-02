@@ -1,7 +1,11 @@
 # Guillermo Enguita Lahoz 801618
 # This script takes as input the 'videos-cocinando-raw' dataset.
-# The script processes each one of the videos, and stores information about them in a json file.
-# The script also takes as input a number from 0 to 100, indicating the chance of a video to be in the training set.
+# The script processes each one of the videos, and stores information about them in a json file, furthermore
+# it changes the videos' names to fit the ones specified in the annotations file.
+# It also takes as input a number from 0 to 100, indicating the chance of a video to be in the training set.
+# Finally, it creates the file vid_list.csv, which contains all the videos' names and is required for the
+# SlowFast Feature Extractor.
+
 # Note: not every video is annotated
 # Note: the video id is related to the order of the videos in the folder, so the first one to appear will be
 #       P01_1, the second one P01_2 and so on
@@ -35,15 +39,15 @@ import os
 # Processes video information from video_folder, video ids are specified in video_annotations
 # The training_set_chance indicates how likely a video is to be classified as a training set video
 def process_videos(video_folder, output_file_name, training_set_chance: int = 80):
-    # Load the video annotations json file
-    video_annotations_file = open(video_annotations)
-    video_annotations_json = json.load(video_annotations_file)
-    videos = video_annotations_json['file']
-
+    # Read all the video files' names from the input folder
     video_names = os.listdir(video_folder)
 
     # Video data list
     video_list = []
+
+    # vid_list.csv file, required by the feature extractor
+    # It contains the relative path to all the videos
+    vid_list_csv = open(video_folder + '/vid_list.csv', 'w+')
 
     # Process each video
     for video_number in range(1, len(video_names) + 1):
@@ -66,6 +70,7 @@ def process_videos(video_folder, output_file_name, training_set_chance: int = 80
         subset = 'training'
         if random.randint(0, 101) > int(training_set_chance):
             subset = 'validation'
+        video.release()
 
         # Create a dictionary for the video and append it to the video list
         video_dict = {
@@ -79,9 +84,16 @@ def process_videos(video_folder, output_file_name, training_set_chance: int = 80
         }
         video_list.append(video_dict)
 
+        # Change the videos' name to the one we will use for the feature extractor
+        os.rename(video_path, video_folder + '/' + video_id + '.mp4')
+
+        # Write the videos' name in the vid_list.csv file
+        vid_list_csv.write(video_id + '.mp4\n')
+
     # Output all the video data to a json file
     output_file = open(output_file_name, 'w+')
     json.dump(video_list, output_file)
+    vid_list_csv.close()
 
 
 if __name__ == "__main__":

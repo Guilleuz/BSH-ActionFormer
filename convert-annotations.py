@@ -150,7 +150,7 @@ def convert_annotations(input_file, output_file, video_info_file):
 
     # Create and write the final json files for noun and verb annotations
     noun_database_complete = {"version": output_file + "_noun", "database": noun_database}
-    verb_database_complete = {"version": output_file + "verb", "database": verb_database}
+    verb_database_complete = {"version": output_file + "_verb", "database": verb_database}
 
     noun_output = open(output_file_nouns, 'w+')
     json.dump(noun_database_complete, noun_output)
