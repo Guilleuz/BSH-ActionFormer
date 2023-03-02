@@ -1,6 +1,5 @@
 # Guillermo Enguita Lahoz 801618
 # Script to convert action video annotations in MotionFormer's format to ActionFormer's
-# Usage: python convert-annotations.py <input annotations> <output name>
 
 # MotionFormer requires a csv file, each row will represent an action annotation, in the following format:
 # narration_id, participant_id,	video_id, narration_timestamp, start_timestamp, stop_timestamp, start_frame,
@@ -23,9 +22,9 @@
 # In the field segment, we have to specify the starting and ending times of the action in <seconds>:<hundreths>
 #   We can extract those from the start_timestamp and stop_timestamp fields
 
-# TODO script to get video duration and resolution
-# I could make a script that takes all the videos, saves the name/id relation, and the resolution and duration
-# It may also be a good idea to have an input parameter to choose the train/validation split in the videos
+# Usage: python convert-annotations.py <input annotations> <video info file> <output name>
+# input annotations: path to the csv file with the action annotations used for MotionFormer
+# video info file: path to the json file containing the video metadata (id, filename, resolution, duration, subset, ...)
 
 import sys
 import csv
@@ -41,7 +40,35 @@ def get_seconds(timestamp):
     return str(hours * 3600 + minutes * 60 + seconds)
 
 
-def convert_annotations(input_file, output_file):
+# Loads each videos metadata (id, filename, resolution, duration, subset and framerate) from a json file
+# Returns a dictionary with the video id as a key, its duration, resolution and subset as values
+def load_video_info(input_path):
+    # Load json video info file
+    video_info = open(input_path)
+    videos = json.load(video_info)
+
+    video_dict = {}
+
+    # Create a dictionary with the video id as key, duration, resolution and subset as values
+    for v in range(len(videos)):
+        video_id = videos[v]['id']
+        video_duration = videos[v]['duration']
+        video_resolution = str(videos[v]['width']) + 'x' + str(videos[v]['height'])
+        video_subset = videos[v]['subset']
+
+        video_dict[video_id] = {
+            "duration": video_duration,
+            "resolution": video_resolution,
+            "subset": video_subset
+        }
+
+    return video_dict
+
+
+def convert_annotations(input_file, output_file, video_info_file):
+    # Load video information
+    video_dict = load_video_info(video_info_file)
+
     # Output file names, one for noun annotations, one for verb annotations
     output_file_nouns = output_file + "_nouns.json"
     output_file_verbs = output_file + "_verbs.json"
@@ -65,25 +92,26 @@ def convert_annotations(input_file, output_file):
         if prev_video != row["video_id"]:
             # If the last video was not empty, we save its annotations
             if prev_video != "":
-                # TODO Get the videos' duration and resolution
+                # Create two dictionaries with the videos' annotations, its resolution, duration and subset
                 video_dict_nouns = {
                     prev_video: {
                         "annotations": noun_annotations,
-                        "resolution": "252x252",
-                        "duration": "60.0",
-                        "subset": "training"
+                        "resolution": video_dict[prev_video]["resolution"],
+                        "duration": video_dict[prev_video]["duration"],
+                        "subset": video_dict[prev_video]["subset"]
                     }
                 }
 
                 video_dict_verbs = {
                     prev_video: {
                         "annotations": verb_annotations,
-                        "resolution": "252x252",
-                        "duration": "60.0",
-                        "subset": "training"
+                        "resolution": video_dict[prev_video]["resolution"],
+                        "duration": video_dict[prev_video]["duration"],
+                        "subset": video_dict[prev_video]["subset"]
                     }
                 }
 
+                # Add the dictionaries to the noun and verb lists
                 noun_database.update(video_dict_nouns)
                 verb_database.update(video_dict_verbs)
 
@@ -92,7 +120,7 @@ def convert_annotations(input_file, output_file):
             noun_annotations = []
             verb_annotations = []
 
-        # Save the annotation in the nouns and the verbs json
+        # Save the annotation in the nouns and the verbs list
         noun_id = row["noun_class"]
         verb_id = row["verb_class"]
         start_time = row["start_timestamp"]
@@ -131,4 +159,4 @@ def convert_annotations(input_file, output_file):
 
 
 if __name__ == "__main__":
-    convert_annotations(sys.argv[1], sys.argv[2])
+    convert_annotations(sys.argv[1], sys.argv[2], sys.argv[3])

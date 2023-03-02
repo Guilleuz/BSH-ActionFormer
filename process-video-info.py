@@ -35,9 +35,9 @@ import random
 
 # Processes video information from video_folder, video ids are specified in video_annotations
 # The training_set_chance indicates how likely a video is to be classified as a training set video
-def process_videos(video_folder, video_annotations_, output_file_name, training_set_chance: int = 80):
+def process_videos(video_folder, video_annotations, output_file_name, training_set_chance: int = 80):
     # Load the video annotations json file
-    video_annotations_file = open(video_annotations_)
+    video_annotations_file = open(video_annotations)
     video_annotations_json = json.load(video_annotations_file)
     videos = video_annotations_json['file']
 
