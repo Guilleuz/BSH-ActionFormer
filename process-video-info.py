@@ -1,11 +1,10 @@
 # Guillermo Enguita Lahoz 801618
-# This script takes as input the 'videos-cocinando-raw' dataset, as well as the 'BSH_video_annotations.json' file
-# created by Miguel. That file is required as right now it is the only one that explicits the relation between the
-# video file names and the video ids used on the annotation files.
-
+# This script takes as input the 'videos-cocinando-raw' dataset.
 # The script processes each one of the videos, and stores information about them in a json file.
 # The script also takes as input a number from 0 to 100, indicating the chance of a video to be in the training set.
 # Note: not every video is annotated
+# Note: the video id is related to the order of the videos in the folder, so the first one to appear will be
+#       P01_1, the second one P01_2 and so on
 
 
 # The structure for the json output will be the following:
@@ -24,32 +23,33 @@
 # ]
 
 # Execute with:
-# python process-video-info.py <path to video folder> <path to BSH_video_annotations.json>
-#       <output_file> <training_set_chance>
+# python process-video-info.py <path to video folder> <output_file> <training_set_chance>
 
 import sys
 import json
 import cv2
 import random
+import os
 
 
 # Processes video information from video_folder, video ids are specified in video_annotations
 # The training_set_chance indicates how likely a video is to be classified as a training set video
-def process_videos(video_folder, video_annotations, output_file_name, training_set_chance: int = 80):
+def process_videos(video_folder, output_file_name, training_set_chance: int = 80):
     # Load the video annotations json file
     video_annotations_file = open(video_annotations)
     video_annotations_json = json.load(video_annotations_file)
     videos = video_annotations_json['file']
 
+    video_names = os.listdir(video_folder)
+
     # Video data list
     video_list = []
 
     # Process each video
-    for id in videos:
+    for video_number in range(1, len(video_names) + 1):
         # Extract information from the annotations file
-        video_id = 'P01_' + id
-        video_name = videos[id]['src']
-        video_name = video_name[1:]
+        video_id = 'P01_' + str(video_number)
+        video_name = video_names[video_number - 1]
         video_path = video_folder + '/' + video_name
 
         # Open the video to get its framerate, duration and resolution
@@ -85,5 +85,5 @@ def process_videos(video_folder, video_annotations, output_file_name, training_s
 
 
 if __name__ == "__main__":
-    process_videos(sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4])
+    process_videos(sys.argv[1], sys.argv[2], sys.argv[3])
 
