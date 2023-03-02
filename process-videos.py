@@ -27,7 +27,7 @@
 # ]
 
 # Execute with:
-# python process-video-info.py <path to video folder> <output_file> <training_set_chance>
+# python process-videos.py <path to video folder> <output_file> <training_set_chance>
 
 import sys
 import json
