@@ -87,11 +87,17 @@ def convert_annotations(input_file, output_file, video_info_file):
     noun_database = dict()
     verb_database = dict()
 
+    # Create the vid_list.csv file
+    vid_list_csv = open('vid_list.csv', 'w+')
+
     for row in csv_reader:
         # If we read an action corresponding to a new video
         if prev_video != row["video_id"]:
             # If the last video was not empty, we save its annotations
             if prev_video != "":
+                # Output the videos' name to the vid_list.csv
+                vid_list_csv.write(prev_video + '.mp4\n')
+
                 # Create two dictionaries with the videos' annotations, its resolution, duration and subset
                 video_dict_nouns = {
                     prev_video: {
@@ -156,6 +162,7 @@ def convert_annotations(input_file, output_file, video_info_file):
     json.dump(noun_database_complete, noun_output)
     verb_output = open(output_file_verbs, 'w+')
     json.dump(verb_database_complete, verb_output)
+    vid_list_csv.close()
 
 
 if __name__ == "__main__":

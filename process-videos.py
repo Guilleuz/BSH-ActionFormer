@@ -45,10 +45,6 @@ def process_videos(video_folder, output_file_name, training_set_chance: int = 80
     # Video data list
     video_list = []
 
-    # vid_list.csv file, required by the feature extractor
-    # It contains the relative path to all the videos
-    vid_list_csv = open(video_folder + '/vid_list.csv', 'w+')
-
     # Process each video
     for video_number in range(1, len(video_names) + 1):
         # Extract information from the annotations file
@@ -87,13 +83,9 @@ def process_videos(video_folder, output_file_name, training_set_chance: int = 80
         # Change the videos' name to the one we will use for the feature extractor
         os.rename(video_path, video_folder + '/' + video_id + '.mp4')
 
-        # Write the videos' name in the vid_list.csv file
-        vid_list_csv.write(video_id + '.mp4\n')
-
     # Output all the video data to a json file
     output_file = open(output_file_name, 'w+')
     json.dump(video_list, output_file)
-    vid_list_csv.close()
 
 
 if __name__ == "__main__":
