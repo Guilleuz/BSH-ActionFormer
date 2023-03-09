@@ -26,3 +26,5 @@ the files `video_annotations_verbs|nouns.json`, which follow the format used by 
 file `vid_list.csv`, which contains a list of the annotated videos, and is required for the 
 **SlowFast Feature Extractor**. This file has to be included in the same folder as the videos whose features are going
 to be extracted.
+
+## SlowFast Feature Extraction

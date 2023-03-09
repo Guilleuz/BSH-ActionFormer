@@ -7,8 +7,6 @@
 # e.g:
 # P01_4_0,P01,P01_4,00:00:04.30,00:00:04.30,00:00:08.80,260,525,stir vegetable,stir,10,vegetable,94,['vegetable'],[94]
 
-# Annotations corresponding to the same video are in adjacent rows
-
 # For ActionFormer we require two json files, one of them will contain the verbs, while the other will contain the nouns
 # e.g:
 # {version: "dataset-name", database:
@@ -79,6 +77,10 @@ def convert_annotations(input_file, output_file, video_info_file):
 
     # Previous video's name
     prev_video = ""
+
+    # List of previously processed videos
+    already_processed_videos = []
+
     # List of noun/verb annotations in a video
     noun_annotations = []
     verb_annotations = []
@@ -93,10 +95,18 @@ def convert_annotations(input_file, output_file, video_info_file):
     for row in csv_reader:
         # If we read an action corresponding to a new video
         if prev_video != row["video_id"]:
+            # If the video has already been processed, we append the new annotations to the existing ones
+            if prev_video in already_processed_videos:
+                noun_database[prev_video]['annotations'].extend(noun_annotations)
+                verb_database[prev_video]['annotations'].extend(verb_annotations)
+
             # If the last video was not empty, we save its annotations
-            if prev_video != "":
+            elif prev_video != "":
                 # Output the videos' name to the vid_list.csv
                 vid_list_csv.write(prev_video + '.mp4\n')
+
+                # Save the video as already processed
+                already_processed_videos.append(str(prev_video))
 
                 # Create two dictionaries with the videos' annotations, its resolution, duration and subset
                 video_dict_nouns = {
