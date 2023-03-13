@@ -90,7 +90,7 @@ def convert_annotations(input_file, output_file, video_info_file):
     verb_database = dict()
 
     # Create the vid_list.csv file
-    vid_list_csv = open('vid_list.csv', 'w+')
+    vid_list_csv = open('video_annotations/vid_list.csv', 'w+')
 
     for row in csv_reader:
         # If we read an action corresponding to a new video
