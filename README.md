@@ -27,8 +27,8 @@ file `vid_list.csv`, which contains a list of the annotated videos, and is requi
 **SlowFast Feature Extractor**. This file has to be included in the same folder as the videos whose features are going
 to be extracted.
 
-Furthermore, the `remove-unused-videos.py` script will delete (do NOT execute if you still need them) any videos from the video folder that have not been
-annotated, that is, videos not listed in `vid_list.csv`.
+Furthermore, the `remove-unused-videos.py` script will delete (do NOT execute if you still need them) any videos from 
+the video folder that have not been annotated, that is, videos not listed in `vid_list.csv`.
 
 ## SlowFast Feature Extraction
 
@@ -42,14 +42,19 @@ To extract the features, we used an already available tool
 modified as it was not up-to-date with the recent releases. In the folder `slowfast-feature-extractor` you can find 
 the code necessary to execute the feature extraction.
 
-The model was pretrained on the Kinetics 600 dataset, and those weights were obtained from the projects 
-[*Model Zoo*](https://github.com/facebookresearch/SlowFast/blob/main/MODEL_ZOO.md). 
+The model was pretrained on the EpicKitchens dataset, and those weights were obtained from the projects 
+[**Challenge Baselines**](https://github.com/epic-kitchens/C2-Action-Detection). 
 The configuration file used was the one provided for the aforementioned dataset, modified for our own videos which should
 be placed in the `datasets` folder.
 
 To execute the code:
         
     python run_net.py --cfg <config file>
+
+Also, it should be noted that I had to use the `resize_and_extract_frames.sh` script provided by Alex to extract each
+videos frames before executing the model, as the video loading would not work otherwise. Besides, I implemented the 
+`compress_numpy.py` script that compresses every `.npy` file in a given folder, using the `.npz` format 
+(also required for **ActionFormer**).
 
 ## ActionFormer: Training and evaluation
 
