@@ -143,8 +143,8 @@ def convert_annotations(input_file, output_file, video_info_file):
         stop_time = row["stop_timestamp"]
 
         # Change timestamps from HH:MM:SS.HH to SS.HH
-        start_time = get_seconds(start_time)
-        stop_time = get_seconds(stop_time)
+        start_time = float(get_seconds(start_time))
+        stop_time = float(get_seconds(stop_time))
 
         # Build a dictionary with the noun annotation
         noun_dict = {
