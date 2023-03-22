@@ -25,6 +25,12 @@ def compress_npy(npy_folder):
                 basename = '_'.join(basename_splits)
 
             np.savez_compressed(npy_folder + '/' + basename + '.npz', array)
+
+            # TODO check if this is necessary
+            # Cannot save directly with 'feats' as key without getting a bad zip file error
+            # Reopen the file, and save it correctly
+            array = np.load(npy_folder + '/' + basename + '.npz')
+            np.savez_compressed(npy_folder + '/' + basename + '.npz', feats=array['arr_0'])
             print(' Done!')
 
 
