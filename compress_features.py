@@ -51,7 +51,7 @@ def compress_features(feature_folder, output_folder):
             bar.refresh()
 
         # Save the compressed feature array to the output folder using the video id
-        print('\nDone')
+        print('\nDone\n')
         np.savez_compressed(output_folder + '/' + video_id + '.npz', feats=array)
 
 

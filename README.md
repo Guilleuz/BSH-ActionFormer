@@ -30,6 +30,28 @@ to be extracted.
 Furthermore, the `remove-unused-videos.py` script will delete (do NOT execute if you still need them) any videos from 
 the video folder that have not been annotated, that is, videos not listed in `vid_list.csv`.
 
+
+## Gluon CV
+As the previous feature extractor did not work, we tried using a new one, [**Gluon CV**](https://cv.gluon.ai/), 
+which provides feature extraction from videos using different models, including **SlowFast**. One of its main problems, 
+is that if we set the number of segments of the video from which to extract features, the process will finish due
+to a memory error, so it was necessary to make a script to divide each video into 32-frame long clips.
+
+Said script can be found in `split_videos.py`, which can be executed using:
+
+    python split_videos.py <video folder> <video clip list file> <clip size in frames>
+
+Once the videos are split, we can extract their features using **Gluon CV**, with the following command:
+
+    python feat_extract.py --data-list video.txt --model slowfast_4x16_resnet50_kinetics400 --save-dir ./features 
+    --slowfast --slow-temporal-stride 8 --fast-temporal-stride 1 --new-length 32 --num-segments 1 --use-pretrained
+    --gpu-id 1
+
+Finally, the script `compress_features.py` is available to compress all the features extracted from individual files 
+into a single one for each video. It can be executed with:
+
+    python compress_features.py <clip feature folder> <output folder>
+
 ## SlowFast Feature Extraction
 
 To obtain the features of our video dataset, we will use the **SlowFast** model, a video encoder based in two different
