@@ -68,13 +68,15 @@ def plot_intervals(ground_truth_videos, prediction_videos, video_id, args):
     intervals, max_label, maxx, minx, labels_ground = extract_intervals(max_label, maxx, minx, ground_truth_intervals)
     intervals_pred, max_label, maxx, minx, labels_pred = extract_intervals(max_label, maxx, minx, prediction_intervals)
 
-    # Action colors, if max label is higher than the number of colors, there will be a runtime error
+    # Action colors, if max label is higher than the number of colors, there will be repeated colors
     colors = ['tab:blue', 'tab:orange', 'tab:green', 'tab:red', 'tab:purple', 'tab:brown', 'tab:pink', 'tab:gray',
               'tab:olive', 'tab:cyan']
 
+    max_colors = min(len(colors), max_label)
+
     # Get the colors for the intervals
-    colors_ground = [colors[int(i % max_label)] for i in labels_ground]
-    colors_pred = [colors[int(i % max_label)] for i in labels_pred]
+    colors_ground = [colors[int(i % max_colors)] for i in labels_ground]
+    colors_pred = [colors[int(i % max_colors)] for i in labels_pred]
 
     # Plot the intervals
     fig, ax = plt.subplots()
