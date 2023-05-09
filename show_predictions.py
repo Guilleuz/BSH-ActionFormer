@@ -10,6 +10,7 @@ import argparse
 import csv
 import sys
 import matplotlib.pyplot as plt
+import matplotlib.patches as mpatches
 import mpld3
 import streamlit.components.v1 as components
 
@@ -53,6 +54,23 @@ def load_intervals(intervals_file, is_pred=False, score_threshold=0.1):
     return action_intervals
 
 
+# Action colors, if max label is higher than the number of colors, there will be repeated colors
+colors = ['tab:blue', 'tab:orange', 'tab:green', 'tab:red', 'tab:purple', 'tab:brown', 'tab:pink', 'tab:gray',
+          'tab:olive', 'tab:cyan', 'yellow', 'crimson', 'violet', 'palegreen', 'sandybrown']
+
+
+# TODO get the actual label names
+# Creates a legend, including all the label names matching their respective colors
+def get_legend(max_label, label_names=['Add', 'Flip']):
+    max_label = 1
+    legend_handles = list()
+    for label in range(0, max_label + 1):
+        handle = mpatches.Patch(color=colors[label], label=label_names[label])
+        legend_handles.append(handle)
+
+    return legend_handles
+
+
 # Plots the ground truth and the predicted intervals in a video given its id
 def plot_intervals(ground_truth_videos, prediction_videos, video_id, args):
     # Get ground truth and prediction intervals for the given video
@@ -68,13 +86,8 @@ def plot_intervals(ground_truth_videos, prediction_videos, video_id, args):
     intervals, max_label, maxx, minx, labels_ground = extract_intervals(max_label, maxx, minx, ground_truth_intervals)
     intervals_pred, max_label, maxx, minx, labels_pred = extract_intervals(max_label, maxx, minx, prediction_intervals)
 
-    # Action colors, if max label is higher than the number of colors, there will be repeated colors
-    colors = ['tab:blue', 'tab:orange', 'tab:green', 'tab:red', 'tab:purple', 'tab:brown', 'tab:pink', 'tab:gray',
-              'tab:olive', 'tab:cyan']
-
-    max_colors = min(len(colors), max_label)
-
     # Get the colors for the intervals
+    max_colors = min(len(colors), max_label + 1)
     colors_ground = [colors[int(i % max_colors)] for i in labels_ground]
     colors_pred = [colors[int(i % max_colors)] for i in labels_pred]
 
@@ -86,7 +99,9 @@ def plot_intervals(ground_truth_videos, prediction_videos, video_id, args):
     ax.set_xlim(minx, maxx)
     ax.set_xlabel('Time (seconds)')
     ax.set_yticks([0.5, 1.5])
-    ax.set_yticklabels(['Ground-Truth', 'Predicted'])
+    ax.set_yticklabels(['Ground', 'Predicted'])
+    legend_handles = get_legend(max_label)
+    plt.legend(handles=legend_handles)
     plt.show()
 
     if "web" in args:
