@@ -95,6 +95,14 @@ def plot_intervals(ground_truth_videos, prediction_videos, video_id, label_names
     intervals, max_label, maxx, minx, labels_ground = extract_intervals(max_label, maxx, minx, ground_truth_intervals)
     intervals_pred, max_label, maxx, minx, labels_pred = extract_intervals(max_label, maxx, minx, prediction_intervals)
 
+    if "matches_only" in args:
+        # Get a list with the labels in the ground truth (one appearence by label)
+        ground_truth_labels = np.unique(labels_ground)
+
+        # Filter all the predictions that have a label that does not appear in the ground truth
+        intervals_pred = [intervals_pred[i] for i in range(len(intervals_pred)) if labels_pred[i] in ground_truth_labels]
+        labels_pred = [labels_pred[i] for i in range(len(labels_pred)) if labels_pred[i] in ground_truth_labels]
+
     # Get a list with all the different labels, only one appearance by label
     unique_labels = np.unique(labels_ground + labels_pred)
 
@@ -197,15 +205,13 @@ if __name__ == "__main__":
     # Define the arguments used by the program
     parser.add_argument('--ground_truth', required=True, help="Ground truth intervals file name")
     parser.add_argument('--predictions', required=True, help="Predicted intervals file name")
-    parser.add_argument('--activity_index', required=True,
-                        help="JSON file containing the labels of the present actions "
-                             "as keys, and the labels asigned by the model as values. That is, "
-                             "labels present in the ground-truth will have a new one asigned from "
-                             "0 to max-label")
     parser.add_argument('--label_names', required=True,
                         help="CSV file that contains in each row a label and its corresponding name")
     parser.add_argument("--threshold", type=float, default="0", help="If the predicted interval's score is lower"
                                                                      "than the threshold, it will be ignored.")
+    parser.add_argument('--matches_only', default=argparse.SUPPRESS, nargs='?',
+                        help="If this flag is set, the graph will only show predicted intervals with an action label "
+                             "that appears in the ground truth, removing the rest.")
     parser.add_argument('--web', default=argparse.SUPPRESS, nargs='?', help="Use only when calling from streamlit,"
                                                                             "provides an interactive graph")
     parser.add_argument('--video_id', help="Name of the video to plot, only for streamlit")
