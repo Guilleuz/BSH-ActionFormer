@@ -66,21 +66,22 @@ def load_intervals(intervals_file, is_pred=False, score_threshold=0.1):
 
 # Action colors, if max label is higher than the number of colors, there will be repeated colors
 colors = ['tab:blue', 'tab:orange', 'tab:green', 'tab:red', 'tab:purple', 'tab:brown', 'tab:pink', 'tab:gray',
-          'tab:olive', 'tab:cyan', 'yellow', 'crimson', 'violet', 'palegreen', 'sandybrown']
+          'tab:olive', 'tab:cyan', 'yellow', 'crimson', 'violet', 'palegreen', 'sandybrown', 'magenta', 'purple',
+          'cyan', 'olivedrab', 'coral', 'peru', 'pink']
 
 
 # Creates a legend, including all the label names matching their respective colors
-def get_legend(unique_labels, activity_indexes, color_by_label, label_names):
+def get_legend(unique_labels, color_by_label, label_names):
     legend_handles = list()
     for label in unique_labels:
-        handle = mpatches.Patch(color=color_by_label[label], label=label_names[activity_indexes[label]])
+        handle = mpatches.Patch(color=color_by_label[label], label=label_names[label])
         legend_handles.append(handle)
 
     return legend_handles
 
 
 # Plots the ground truth and the predicted intervals in a video given its id
-def plot_intervals(ground_truth_videos, prediction_videos, video_id, activity_indexes, label_names, args):
+def plot_intervals(ground_truth_videos, prediction_videos, video_id, label_names, args):
     # Get ground truth and prediction intervals for the given video
     ground_truth_intervals = ground_truth_videos[video_id]
     prediction_intervals = prediction_videos[video_id]
@@ -98,7 +99,9 @@ def plot_intervals(ground_truth_videos, prediction_videos, video_id, activity_in
     unique_labels = np.unique(labels_ground + labels_pred)
 
     # Get the colors for the intervals
-    color_by_label = {int(label): colors[np.where(unique_labels == label)[0][0]] for label in unique_labels}
+    # If the number of unique labels is higher than the number of colors, they will start repeating
+    color_by_label = {int(label): colors[np.where(unique_labels == label)[0][0] % len(colors)]
+                      for label in unique_labels}
     colors_ground = [color_by_label[i] for i in labels_ground]
     colors_pred = [color_by_label[i] for i in labels_pred]
 
@@ -119,7 +122,7 @@ def plot_intervals(ground_truth_videos, prediction_videos, video_id, activity_in
     ax.set_yticklabels(['Ground', 'Predicted'])
 
     # Set legend
-    legend_handles = get_legend(unique_labels, activity_indexes, color_by_label, label_names)
+    legend_handles = get_legend(unique_labels, color_by_label, label_names)
     plt.legend(handles=legend_handles)
     plt.show()
 
@@ -162,12 +165,6 @@ def show_predictions(ground_truth_file, predictions_file, args):
     ground_truth_videos = load_intervals(ground_truth_file)
     prediction_videos = load_intervals(predictions_file, True, args.threshold)
 
-    # Load action indexes
-    json_activity_index = open(args.activity_index, 'r')
-    activity_indexes = json.load(json_activity_index)
-    json_activity_index.close()
-    activity_indexes = {v: int(k) for k, v in activity_indexes.items()}
-
     # Load label names
     label_names_file = open(args.label_names, newline='\n')
     reader = csv.reader(label_names_file, delimiter=',', quotechar='|')
@@ -180,11 +177,11 @@ def show_predictions(ground_truth_file, predictions_file, args):
 
     if "web" in args:
         # If we are using streamlit, plot only one graph
-        plot_intervals(ground_truth_videos, prediction_videos, args.video_id, activity_indexes, label_names, args)
+        plot_intervals(ground_truth_videos, prediction_videos, args.video_id, label_names, args)
     else:
         # Else, plot a graph for each video
         for video in ground_truth_videos:
-            plot_intervals(ground_truth_videos, prediction_videos, video, activity_indexes, label_names, args)
+            plot_intervals(ground_truth_videos, prediction_videos, video, label_names, args)
 
 
 if __name__ == "__main__":
