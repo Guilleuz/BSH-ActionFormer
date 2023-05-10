@@ -95,6 +95,8 @@ def plot_intervals(ground_truth_videos, prediction_videos, video_id, label_names
     intervals, max_label, maxx, minx, labels_ground = extract_intervals(max_label, maxx, minx, ground_truth_intervals)
     intervals_pred, max_label, maxx, minx, labels_pred = extract_intervals(max_label, maxx, minx, prediction_intervals)
 
+    # If the matches_only flag is set, the prediction intervals with labels that do not appear in the ground-truth
+    # will be hidden from the graph
     if "matches_only" in args:
         # Get a list with the labels in the ground truth (one appearence by label)
         ground_truth_labels = np.unique(labels_ground)
