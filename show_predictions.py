@@ -6,6 +6,14 @@
 # The format for those files must be the following
 # ,video-id,t-start,t-end,label
 # <clip_num>,<video_num>,<start time in seconds>,<finish time in seconds>,<action label>
+
+# Also, it requires a file that indicates the relationship between the labels used by the model, and the actual labels,
+# in addition to a file containing the names of the actions according to their labels
+
+# It allows the option to output the generated graph as an interactive html page, which can be enabled by using the
+# option --web and calling the program with: streamlit run show_predictions.py -- [ARGS]
+# The rest of the arguments can be shown using --help
+
 import argparse
 import csv
 import json
@@ -61,20 +69,18 @@ colors = ['tab:blue', 'tab:orange', 'tab:green', 'tab:red', 'tab:purple', 'tab:b
           'tab:olive', 'tab:cyan', 'yellow', 'crimson', 'violet', 'palegreen', 'sandybrown']
 
 
-# TODO get the actual label names
 # Creates a legend, including all the label names matching their respective colors
-def get_legend(unique_labels, activity_indexes, color_by_label, label_names=['Flip', 'Add']):
+def get_legend(unique_labels, activity_indexes, color_by_label, label_names):
     legend_handles = list()
-    max_label = 1
     for label in unique_labels:
-        handle = mpatches.Patch(color=color_by_label[label], label=activity_indexes[label])
+        handle = mpatches.Patch(color=color_by_label[label], label=label_names[activity_indexes[label]])
         legend_handles.append(handle)
 
     return legend_handles
 
 
 # Plots the ground truth and the predicted intervals in a video given its id
-def plot_intervals(ground_truth_videos, prediction_videos, video_id, activity_indexes, args):
+def plot_intervals(ground_truth_videos, prediction_videos, video_id, activity_indexes, label_names, args):
     # Get ground truth and prediction intervals for the given video
     ground_truth_intervals = ground_truth_videos[video_id]
     prediction_intervals = prediction_videos[video_id]
@@ -88,29 +94,36 @@ def plot_intervals(ground_truth_videos, prediction_videos, video_id, activity_in
     intervals, max_label, maxx, minx, labels_ground = extract_intervals(max_label, maxx, minx, ground_truth_intervals)
     intervals_pred, max_label, maxx, minx, labels_pred = extract_intervals(max_label, maxx, minx, prediction_intervals)
 
-    # Get a list with all the different labels, only one appeareance by label
+    # Get a list with all the different labels, only one appearance by label
     unique_labels = np.unique(labels_ground + labels_pred)
-    print(unique_labels)
 
     # Get the colors for the intervals
     color_by_label = {int(label): colors[np.where(unique_labels == label)[0][0]] for label in unique_labels}
-    print(color_by_label)
     colors_ground = [color_by_label[i] for i in labels_ground]
     colors_pred = [color_by_label[i] for i in labels_pred]
 
     # Plot the intervals
     fig, ax = plt.subplots()
+
+    # Plots predicted and ground truth intervals
     ax.broken_barh(intervals, (0, 1), facecolors=colors_ground)
     ax.broken_barh(intervals_pred, (1, 1), facecolors=colors_pred)
+
+    # Set graph limits
     ax.set_ylim(0, 10)
     ax.set_xlim(minx, maxx)
+
+    # Set labels
     ax.set_xlabel('Time (seconds)')
     ax.set_yticks([0.5, 1.5])
     ax.set_yticklabels(['Ground', 'Predicted'])
-    legend_handles = get_legend(unique_labels, activity_indexes, color_by_label)
+
+    # Set legend
+    legend_handles = get_legend(unique_labels, activity_indexes, color_by_label, label_names)
     plt.legend(handles=legend_handles)
     plt.show()
 
+    # Plot using streamlit if desired
     if "web" in args:
         fig_html = mpld3.fig_to_html(fig)
         components.html(fig_html, height=600)
@@ -154,17 +167,24 @@ def show_predictions(ground_truth_file, predictions_file, args):
     activity_indexes = json.load(json_activity_index)
     json_activity_index.close()
     activity_indexes = {v: int(k) for k, v in activity_indexes.items()}
-    print(activity_indexes)
 
+    # Load label names
+    label_names_file = open(args.label_names, newline='\n')
+    reader = csv.reader(label_names_file, delimiter=',', quotechar='|')
+    label_names = {int(row[0]): row[1] for row in reader}
+
+    # Print the names of the loaded videos
     print("Loaded videos:")
     for video in ground_truth_videos:
         print(video)
 
     if "web" in args:
-        plot_intervals(ground_truth_videos, prediction_videos, args.video_id, activity_indexes, args)
+        # If we are using streamlit, plot only one graph
+        plot_intervals(ground_truth_videos, prediction_videos, args.video_id, activity_indexes, label_names, args)
     else:
+        # Else, plot a graph for each video
         for video in ground_truth_videos:
-            plot_intervals(ground_truth_videos, prediction_videos, video, activity_indexes, args)
+            plot_intervals(ground_truth_videos, prediction_videos, video, activity_indexes, label_names, args)
 
 
 if __name__ == "__main__":
@@ -178,11 +198,15 @@ if __name__ == "__main__":
     )
 
     # Define the arguments used by the program
-    parser.add_argument('--ground_truth', help="Ground truth intervals file name")
-    parser.add_argument('--predictions', help="Predicted intervals file name")
-    parser.add_argument('--activity_index', help="JSON file containing the labels of the present actions as keys, and"
-                                                 "the labels asigned by the model as values. That is, labels present in"
-                                                 "the ground-truth will have a new one asigned from 0 to max-label")
+    parser.add_argument('--ground_truth', required=True, help="Ground truth intervals file name")
+    parser.add_argument('--predictions', required=True, help="Predicted intervals file name")
+    parser.add_argument('--activity_index', required=True,
+                        help="JSON file containing the labels of the present actions "
+                             "as keys, and the labels asigned by the model as values. That is, "
+                             "labels present in the ground-truth will have a new one asigned from "
+                             "0 to max-label")
+    parser.add_argument('--label_names', required=True,
+                        help="CSV file that contains in each row a label and its corresponding name")
     parser.add_argument("--threshold", type=float, default="0", help="If the predicted interval's score is lower"
                                                                      "than the threshold, it will be ignored.")
     parser.add_argument('--web', default=argparse.SUPPRESS, nargs='?', help="Use only when calling from streamlit,"
