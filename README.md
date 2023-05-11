@@ -32,7 +32,7 @@ the video folder that have not been annotated, that is, videos not listed in `vi
 
 
 ## Gluon CV
-As the previous feature extractor did not work, we tried using a new one, [**Gluon CV**](https://cv.gluon.ai/), 
+As the first feature extractor did not work, we tried using a new one, [**Gluon CV**](https://cv.gluon.ai/), 
 which provides feature extraction from videos using different models, including **SlowFast**. One of its main problems, 
 is that if we set the number of segments of the video from which to extract features, the process will finish due
 to a memory error, so it was necessary to make a script to divide each video into 32-frame long clips.
@@ -52,32 +52,6 @@ into a single one for each video. It can be executed with:
 
     python compress_features.py <clip feature folder> <output folder>
 
-## SlowFast Feature Extraction
-
-To obtain the features of our video dataset, we will use the **SlowFast** model, a video encoder based in two different
-pathways, a slow one that does that processes the video in a reduced framerate, extracting semantic in formation
-that is static or changes very slowly. On the other hand, the fast pathway processes the video in its original framerate,
-being able to detect actions and other rapidly changing information.
-
-To extract the features, we used an already available tool 
-[**SlowFast Feature Extractor**](https://github.com/tridivb/slowfast_feature_extractor), which had to be slightly
-modified as it was not up-to-date with the recent releases. In the folder `slowfast-feature-extractor` you can find 
-the code necessary to execute the feature extraction.
-
-The model was pretrained on the EpicKitchens dataset, and those weights were obtained from the projects 
-[**Challenge Baselines**](https://github.com/epic-kitchens/C2-Action-Detection). 
-The configuration file used was the one provided for the aforementioned dataset, modified for our own videos which should
-be placed in the `datasets` folder.
-
-To execute the code:
-        
-    python run_net.py --cfg <config file>
-
-Also, it should be noted that I had to use the `resize_and_extract_frames.sh` script provided by Alex to extract each
-videos frames before executing the model, as the video loading would not work otherwise. Besides, I implemented the 
-`compress_numpy.py` script that compresses every `.npy` file in a given folder, using the `.npz` format 
-(also required for **ActionFormer**).
-
 ## ActionFormer: Training and evaluation
 
 The model will require two independent sessions of training, one for the nouns and another one for the verbs. To train
@@ -92,4 +66,19 @@ And for testing:
     python ./eval.py ./configs/bsh_verbs.yaml ./ckpt/bsh_nouns_reproduce/
 
 The config files used are the ones provided for the EpicKitchens dataset in the ActionFormer repository, modified for
-our own data.
+our own data. After the testing, the model will output two csv files `ground_truth.csv` and `preds.csv`, which contain
+the original action intervals and the predicted ones.
+
+## Prediction Results
+To better visualize the results obtained after inference, we provide the `show_predictions.py` script, which will plot a
+graph showing the predicted action intervals and the actual ones. To run it, we will need the `ground_truth.csv` and 
+`preds.csv` files obtained after evaluation. 
+
+To run the script, execute:
+    
+    python show_predictions.py --ground_truth <ground csv file> --predictions <preds csv file> --threshold <value> --separated
+
+Furthermore, using the option `--help` will show all the available options. If the flag `--web` is set and you run with 
+`streamlit run show_predictions.py -- [ARGS]`, the plot will generate an interactive html graph, using `streamlit`.
+
+![](/home/guille/PycharmProjects/BSH-ActionFormer/example_plot.png)
