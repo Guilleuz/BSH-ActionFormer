@@ -14,9 +14,12 @@
 # option --web and calling the program with: streamlit run show_predictions.py -- [ARGS]
 # The rest of the arguments can be shown using --help
 
+# Run example:
+# python show_predictions.py --ground_truth <ground csv file> --predictions <preds csv file> --threshold <value>
+#   --separated
+
 import argparse
 import csv
-import json
 import sys
 import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
@@ -73,7 +76,7 @@ colors = ['tab:blue', 'tab:orange', 'tab:green', 'tab:red', 'tab:purple', 'tab:b
 # Creates a legend, including all the label names matching their respective colors
 def get_legend(unique_labels, color_by_label, label_names):
     legend_handles = list()
-    for label in unique_labels:
+    for label in reversed(unique_labels):
         handle = mpatches.Patch(color=color_by_label[label], label=label_names[label])
         legend_handles.append(handle)
 
@@ -117,23 +120,54 @@ def plot_intervals(ground_truth_videos, prediction_videos, video_id, label_names
 
     # Plot the intervals
     fig, ax = plt.subplots()
+    fig.set_size_inches(18.5, 10.5)
 
     # Plots predicted and ground truth intervals
     ax.broken_barh(intervals, (0, 1), facecolors=colors_ground)
-    ax.broken_barh(intervals_pred, (1, 1), facecolors=colors_pred)
+
+    # If the flag separated is set plot a barh for each label in the predictions
+    if "separated" in args:
+        # Get each unique label in the predictions
+        unique_pred_labels = np.unique(labels_pred)
+
+        # Init bar height, ytick positions and labels
+        height = 1
+        yticks = [0.5]
+        ytick_labels = ['Ground']
+
+        # For each label in the predictions
+        for label in unique_pred_labels:
+            # Get the intervals with that label
+            intervals_label = [intervals_pred[i] for i in range(len(intervals_pred)) if labels_pred[i] == label]
+
+            # Plot a barh with only those intervals
+            ax.broken_barh(intervals_label, (height, 1), color=color_by_label[label], alpha=0.5)
+            ytick_labels.append(label_names[label])
+            yticks.append(height + 0.5)
+            height += 1
+
+        # Set ticks and vertical limit
+        ax.set_yticks(yticks)
+        ax.set_yticklabels(ytick_labels)
+        ax.set_ylim(0, yticks[-1] + 0.5)
+    else:
+        # If the flag is not set, all the predicted intervals will be plotted in the same barh
+        # Not recommended if there is a lot of overlap between the actions
+        ax.broken_barh(intervals_pred, (1, 1), facecolors=colors_pred)
+        ax.set_yticks([0.5, 1.5])
+        ax.set_yticklabels(['Ground', 'Predicted'])
+        ax.set_ylim(0, 2)
 
     # Set graph limits
-    ax.set_ylim(0, 10)
     ax.set_xlim(minx, maxx)
 
     # Set labels
     ax.set_xlabel('Time (seconds)')
-    ax.set_yticks([0.5, 1.5])
-    ax.set_yticklabels(['Ground', 'Predicted'])
 
-    # Set legend
-    legend_handles = get_legend(unique_labels, color_by_label, label_names)
-    plt.legend(handles=legend_handles)
+    # Set legend, if the hide_legend flag is not set
+    if "hide_legend" not in args:
+        legend_handles = get_legend(unique_labels, color_by_label, label_names)
+        plt.legend(handles=legend_handles)
     plt.show()
 
     # Plot using streamlit if desired
@@ -170,6 +204,11 @@ def extract_intervals(max_label, maxx, minx, action_intervals):
 # Plots the ground truth and predicted action intervals in a video
 def show_predictions(ground_truth_file, predictions_file, args):
     plt.ion()
+
+    # Set matplotlib font
+    font = {'weight': 'bold',
+            'size': 22}
+    plt.rc('font', **font)
 
     # Load action intervals from each file onto memory, separated by video
     ground_truth_videos = load_intervals(ground_truth_file)
@@ -214,6 +253,12 @@ if __name__ == "__main__":
     parser.add_argument('--matches_only', default=argparse.SUPPRESS, nargs='?',
                         help="If this flag is set, the graph will only show predicted intervals with an action label "
                              "that appears in the ground truth, removing the rest.")
+    parser.add_argument('--separated', default=argparse.SUPPRESS, nargs='?',
+                        help="If this flag is set, the graph will only show an individual horizontal bar for each label"
+                             "in the prediction set. Not recommended if the number of predicted classes is high.")
+    parser.add_argument('--hide_legend', default=argparse.SUPPRESS, nargs='?',
+                        help="If this flag is set, the graph will not show the legend. Recommended if the number of "
+                             "classes is very high.")
     parser.add_argument('--web', default=argparse.SUPPRESS, nargs='?', help="Use only when calling from streamlit,"
                                                                             "provides an interactive graph")
     parser.add_argument('--video_id', help="Name of the video to plot, only for streamlit")
