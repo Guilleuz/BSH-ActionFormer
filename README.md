@@ -78,7 +78,7 @@ To run the script, execute:
     
     python show_predictions.py --ground_truth <ground csv file> --predictions <preds csv file> --threshold <value> --separated
 
-Furthermore, using the option `--help` will show all the available options. If the flag `--web` is set and you run with 
+Furthermore, using the option `--help` will show all the available options. If the flag `--web` is set, and you run with 
 `streamlit run show_predictions.py -- [ARGS]`, the plot will generate an interactive html graph, using `streamlit`.
 
 ![](/home/guille/PycharmProjects/BSH-ActionFormer/example_plot.png)
