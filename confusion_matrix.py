@@ -22,15 +22,7 @@ from pandas import *
 
 # Plots a confusion matrix for the given ground truth and predicted intervals
 # Only intervals with a higher IoU to the ground truth than iou_threshold will be considered as matches
-# Only intervals with a confidence score higher than score threshold will be loaded
-def get_confusion_matrix(ground_truth_file, predictions_file, label_names_file, iou_threshold, score_threshold):
-    # Load ground truth intervals
-    ground_truth = read_csv(ground_truth_file)
-
-    # Load predicted intervals, only if their confidence score is higher than a threshold
-    predictions = (read_csv(predictions_file))[lambda x: x['score'] > score_threshold]
-    predictions = predictions.reset_index()
-
+def get_confusion_matrix(ground_truth, predictions, label_names_file, iou_threshold, title):
     # Get the unique labels in both ground truth and predictions
     unique_labels = pandas.unique(ground_truth['label'].tolist() + predictions['label'].tolist())
     unique_labels_gt = pandas.unique(ground_truth['label'].tolist())
@@ -77,7 +69,35 @@ def get_confusion_matrix(ground_truth_file, predictions_file, label_names_file, 
                       columns=[i for i in unique_label_names])
     plt.figure(figsize=(10, 7))
     sn.heatmap(df_cm, annot=True, cmap="crest")
+    plt.title(title)
     plt.show()
+
+
+# Processes and loads the input intervals, both predicted and from the ground truth
+# Only intervals with a confidence score higher than score threshold will be loaded
+def process_input(ground_truth_file, predictions_file, label_names_file, iou_threshold, score_threshold, group_by_vid):
+    # Load ground truth intervals
+    ground_truth = read_csv(ground_truth_file)
+
+    # Load predicted intervals, only if their confidence score is higher than a threshold
+    predictions = (read_csv(predictions_file))[lambda x: x['score'] > score_threshold]
+    predictions = predictions.reset_index()
+
+    # If the groupByVideo flag is set, a confusion matrix will be plotted for each video
+    if group_by_vid:
+        # Group the intervals loaded by video id
+        ground_truth = ground_truth.groupby(['video-id'])
+        predictions = predictions.groupby(['video-id'])
+        video_names = list(ground_truth.indices.keys())
+
+        # Plot a confusion matrix for each group
+        for video in video_names:
+            video_ground_truth = ground_truth.get_group(video).reset_index()
+            video_predictions = predictions.get_group(video).reset_index()
+            get_confusion_matrix(video_ground_truth, video_predictions, label_names_file, iou_threshold, video)
+    else:
+        # Else, plot a united confusion matrix
+        get_confusion_matrix(ground_truth, predictions, label_names_file, iou_threshold, "")
 
 
 if __name__ == "__main__":
@@ -99,10 +119,14 @@ if __name__ == "__main__":
                                                          "than this threshold")
     parser.add_argument('ScoreThreshold', type=float, help="Only predicted intervals with a hihger confidence score "
                                                            "than the threshold set will be taken into account")
+    parser.add_argument('--groupByVideo', default=argparse.SUPPRESS, nargs='?', help="When this flag is set, the "
+                                                                                     "confusion matrix will be "
+                                                                                     "obtained for each video "
+                                                                                     "individually.")
 
     # Parse the arguments
     args = parser.parse_args()
 
-    # Call the main function
-    get_confusion_matrix(args.GroundTruthFile, args.PredictionsFile, args.LabelNames, args.IoUThreshold,
-                         args.ScoreThreshold)
+    # Process the inputs and call the necessary plots
+    process_input(args.GroundTruthFile, args.PredictionsFile, args.LabelNames, args.IoUThreshold,
+                  args.ScoreThreshold, "groupByVideo" in args)
