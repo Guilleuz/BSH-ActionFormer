@@ -4,6 +4,26 @@ This folder contains all the scripts and data required to work with the
 [**ActionFormer**](https://github.com/happyharrycn/actionformer_release) model, 
 a transformer-based network for action detection.
 
+## Folder structure
+
+### *Code* folder
+
+Contains all the code developed until now. *ActionFormer's* repository is stored in the `ActionFormer` subdirectory, the
+code has been slightly modified, mainly to output the intervals predicted by the model.
+
+The `Scripts` subdirectory includes all the auxiliary python scripts needed to process the input data, so that our videos
+can be used with _ActionFormer_, as well as feature extraction and interval plotting, among others. 
+
+### *Data* folder
+
+Contains all the action annotations for BSH's and Epic Kitchens videos as well as the features used as input for the
+model. The folder `video_annotaions` contains some extra annotations for the dataset, mainly a json file with detailed
+information of each video, two files which contain the class names associated to each of the labels, the original action
+annotations and a list with all the video names to process.
+
+Finally, the `output_intervals` folder has some of the intervals predicted by the model, which can be used as input for the plot script.
+
+
 ## Video metadata
 The script `process-videos.py` extracts information from each video in the input folder, such as its resolution, 
 framerate and duration, which has been output to the `video_information.json` file. Furthermore, executing it will
@@ -32,7 +52,7 @@ the video folder that have not been annotated, that is, videos not listed in `vi
 
 
 ## Gluon CV
-As the first feature extractor did not work, we tried using a new one, [**Gluon CV**](https://cv.gluon.ai/), 
+For extracting the features we use the [**Gluon CV**](https://cv.gluon.ai/) tool, 
 which provides feature extraction from videos using different models, including **SlowFast**. One of its main problems, 
 is that if we set the number of segments of the video from which to extract features, the process will finish due
 to a memory error, so it was necessary to make a script to divide each video into 32-frame long clips.
@@ -41,7 +61,8 @@ Said script can be found in `split_videos.py`, which can be executed using:
 
     python split_videos.py <video folder> <video clip list file> <clip size in frames>
 
-Once the videos are split, we can extract their features using **Gluon CV**, with the following command:
+Once the videos are split, we can extract their features using **Gluon CV** (it requires installation), 
+with the following command:
 
     python feat_extract.py --data-list video.txt --model slowfast_4x16_resnet50_kinetics400 --save-dir ./features 
     --slowfast --slow-temporal-stride 8 --fast-temporal-stride 1 --new-length 32 --num-segments 1 --use-pretrained

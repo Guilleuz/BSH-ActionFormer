@@ -70,7 +70,7 @@ def load_intervals(intervals_file, is_pred=False, score_threshold=0.1):
 # Action colors, if max label is higher than the number of colors, there will be repeated colors
 colors = ['tab:blue', 'tab:orange', 'tab:green', 'tab:red', 'tab:purple', 'tab:brown', 'tab:pink', 'tab:gray',
           'tab:olive', 'tab:cyan', 'yellow', 'crimson', 'violet', 'palegreen', 'sandybrown', 'magenta', 'purple',
-          'cyan', 'olivedrab', 'coral', 'peru', 'pink']
+          'cyan', 'olivedrab', 'black', 'peru', 'darkblue']
 
 
 # Creates a legend, including all the label names matching their respective colors
@@ -168,6 +168,9 @@ def plot_intervals(ground_truth_videos, prediction_videos, video_id, label_names
     if "hide_legend" not in args:
         legend_handles = get_legend(unique_labels, color_by_label, label_names)
         plt.legend(handles=legend_handles)
+
+    # Set title
+    plt.title(video_id)
     plt.show()
 
     # Plot using streamlit if desired
@@ -224,7 +227,7 @@ def show_predictions(ground_truth_file, predictions_file, args):
     for video in ground_truth_videos:
         print(video)
 
-    if "web" in args:
+    if "web" in args or "video_id" in args:
         # If we are using streamlit, plot only one graph
         plot_intervals(ground_truth_videos, prediction_videos, args.video_id, label_names, args)
     else:
