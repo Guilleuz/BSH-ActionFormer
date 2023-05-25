@@ -69,7 +69,7 @@ def load_intervals(intervals_file, is_pred=False, score_threshold=0.1):
 
 # Action colors, if max label is higher than the number of colors, there will be repeated colors
 colors = ['tab:blue', 'tab:orange', 'tab:green', 'tab:red', 'tab:purple', 'tab:brown', 'tab:pink', 'tab:gray',
-          'tab:olive', 'tab:cyan', 'yellow', 'crimson', 'violet', 'palegreen', 'sandybrown', 'magenta', 'purple',
+          'tab:olive', 'tab:cyan', 'yellow', 'violet', 'palegreen', 'sandybrown', 'magenta', 'purple',
           'cyan', 'olivedrab', 'black', 'peru', 'darkblue']
 
 
@@ -171,6 +171,7 @@ def plot_intervals(ground_truth_videos, prediction_videos, video_id, label_names
 
     # Set title
     plt.title(video_id)
+    plt.tight_layout()
     plt.show()
 
     # Plot using streamlit if desired
@@ -264,7 +265,7 @@ if __name__ == "__main__":
                              "classes is very high.")
     parser.add_argument('--web', default=argparse.SUPPRESS, nargs='?', help="Use only when calling from streamlit,"
                                                                             "provides an interactive graph")
-    parser.add_argument('--video_id', help="Name of the video to plot, only for streamlit")
+    parser.add_argument('--video_id', default=argparse.SUPPRESS, help="Name of the video to plot, only for streamlit")
 
     args = parser.parse_args()
 

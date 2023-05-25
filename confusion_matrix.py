@@ -75,6 +75,7 @@ def get_confusion_matrix(ground_truth, predictions, label_names_file, iou_thresh
     s = sn.heatmap(df_cm, annot=True, cmap="crest", fmt="g")
     s.set(xlabel='Predicted Class', ylabel='Ground Truth Class')
     plt.title(title)
+    plt.tight_layout()
     plt.show()
 
 
