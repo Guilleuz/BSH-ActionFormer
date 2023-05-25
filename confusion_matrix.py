@@ -10,6 +10,10 @@
 # It can be called with:
 # python confusion_matrix.py <ground truth file> <predictions file> <label names file> <IoU threshold> <score threshold>
 
+# TODO vectorize operations
+# May be a necessity, it takes too long for Epic Kitchens
+# Probably won't be implemented, there are too many classes and the matrix is pretty much unreadable
+
 import argparse
 import csv
 
@@ -68,7 +72,8 @@ def get_confusion_matrix(ground_truth, predictions, label_names_file, iou_thresh
     df_cm = DataFrame(confusion_matrix, index=[i for i in unique_label_names[0:len(unique_labels_gt)]],
                       columns=[i for i in unique_label_names])
     plt.figure(figsize=(10, 7))
-    sn.heatmap(df_cm, annot=True, cmap="crest")
+    s = sn.heatmap(df_cm, annot=True, cmap="crest", fmt="g")
+    s.set(xlabel='Predicted Class', ylabel='Ground Truth Class')
     plt.title(title)
     plt.show()
 
@@ -119,10 +124,8 @@ if __name__ == "__main__":
                                                          "than this threshold")
     parser.add_argument('ScoreThreshold', type=float, help="Only predicted intervals with a hihger confidence score "
                                                            "than the threshold set will be taken into account")
-    parser.add_argument('--groupByVideo', default=argparse.SUPPRESS, nargs='?', help="When this flag is set, the "
-                                                                                     "confusion matrix will be "
-                                                                                     "obtained for each video "
-                                                                                     "individually.")
+    parser.add_argument('--groupByVideo', action='store_true', default=argparse.SUPPRESS,
+                        help="If this flag is set, the confusion matrix will be obtained for each video individually.")
 
     # Parse the arguments
     args = parser.parse_args()
