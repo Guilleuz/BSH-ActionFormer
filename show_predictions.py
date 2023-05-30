@@ -83,6 +83,38 @@ def get_legend(unique_labels, color_by_label, label_names):
     return legend_handles
 
 
+# Given a list of ground truth intervals and another list of predicted ones, it returns a list with the best
+# predicted intervals, one for each ground truth one.
+# For each gt interval, the returned one will be the one with the highest score and a IoU over a threshold
+def get_best_intervals(ground_truth_intervals, prediction_intervals):
+    # List of chosen intervals
+    best_predictions = list()
+
+    # Boolean list, if an interval has already been chosen it will not be chosen again
+    already_chosen = [False] * len(prediction_intervals)
+
+    # For each ground truth interval
+    for i in range(len(ground_truth_intervals)):
+        # For each predicted interval
+        for j in range(len(prediction_intervals)):
+
+            # We work out the Intersection over Union of the intervals
+            union = max(ground_truth_intervals[i]['end'], prediction_intervals[j]['end']) - \
+                    min(ground_truth_intervals[i]['start'], prediction_intervals[j]['start'])
+            intersection = min(ground_truth_intervals[i]['end'], prediction_intervals[j]['end']) - \
+                           max(ground_truth_intervals[i]['start'], prediction_intervals[j]['start'])
+            iou = intersection / union
+
+            # If the IoU is higher than a threshold (0.2) and the predicted interval has yet to be chosen
+            if iou >= 0.2 and not already_chosen[j]:
+                # Save the predicted interval, and move on to the next ground truth instance
+                best_predictions.append(prediction_intervals[j])
+                already_chosen[j] = True
+                break
+
+    return best_predictions
+
+
 # Plots the ground truth and the predicted intervals in a video given its id
 def plot_intervals(ground_truth_videos, prediction_videos, video_id, label_names, args):
     # Get ground truth and prediction intervals for the given video
@@ -92,6 +124,11 @@ def plot_intervals(ground_truth_videos, prediction_videos, video_id, label_names
     minx = sys.float_info.max
     maxx = 0
     max_label = 0
+
+    if "best_intervals" in args:
+        prediction_intervals = get_best_intervals(ground_truth_intervals, prediction_intervals)
+    elif "topk" in args:
+        prediction_intervals = prediction_intervals[0:len(ground_truth_intervals)]
 
     # Get the intervals in the format required for the plot
     # Also gets the max and min x value, the max label and the label arrays for the intervals
@@ -105,7 +142,8 @@ def plot_intervals(ground_truth_videos, prediction_videos, video_id, label_names
         ground_truth_labels = np.unique(labels_ground)
 
         # Filter all the predictions that have a label that does not appear in the ground truth
-        intervals_pred = [intervals_pred[i] for i in range(len(intervals_pred)) if labels_pred[i] in ground_truth_labels]
+        intervals_pred = [intervals_pred[i] for i in range(len(intervals_pred)) if
+                          labels_pred[i] in ground_truth_labels]
         labels_pred = [labels_pred[i] for i in range(len(labels_pred)) if labels_pred[i] in ground_truth_labels]
 
     # Get a list with all the different labels, only one appearance by label
@@ -254,16 +292,21 @@ if __name__ == "__main__":
                         help="CSV file that contains in each row a label and its corresponding name")
     parser.add_argument("--threshold", type=float, default="0", help="If the predicted interval's score is lower"
                                                                      "than the threshold, it will be ignored.")
-    parser.add_argument('--matches_only', default=argparse.SUPPRESS, nargs='?',
+    parser.add_argument('--matches_only', action='store_true', default=argparse.SUPPRESS,
                         help="If this flag is set, the graph will only show predicted intervals with an action label "
                              "that appears in the ground truth, removing the rest.")
-    parser.add_argument('--separated', default=argparse.SUPPRESS, nargs='?',
+    parser.add_argument('--separated', action='store_true', default=argparse.SUPPRESS,
                         help="If this flag is set, the graph will only show an individual horizontal bar for each label"
                              "in the prediction set. Not recommended if the number of predicted classes is high.")
-    parser.add_argument('--hide_legend', default=argparse.SUPPRESS, nargs='?',
+    parser.add_argument('--topk', action='store_true', default=argparse.SUPPRESS,
+                        help="If this flag is set, the graph will only show the highest rated intervals for each video")
+    parser.add_argument('--best_intervals', action='store_true', default=argparse.SUPPRESS,
+                        help="If this flag is set, the graph will only show the highes rated intervals for each one"
+                             "of the ground truth instances in the video")
+    parser.add_argument('--hide_legend', action='store_true', default=argparse.SUPPRESS,
                         help="If this flag is set, the graph will not show the legend. Recommended if the number of "
                              "classes is very high.")
-    parser.add_argument('--web', default=argparse.SUPPRESS, nargs='?', help="Use only when calling from streamlit,"
+    parser.add_argument('--web', action='store_true', default=argparse.SUPPRESS, help="Use only when calling from streamlit,"
                                                                             "provides an interactive graph")
     parser.add_argument('--video_id', default=argparse.SUPPRESS, help="Name of the video to plot, only for streamlit")
 
