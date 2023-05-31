@@ -205,11 +205,12 @@ def plot_intervals(ground_truth_videos, prediction_videos, video_id, label_names
     # Set legend, if the hide_legend flag is not set
     if "hide_legend" not in args:
         legend_handles = get_legend(unique_labels, color_by_label, label_names)
-        plt.legend(handles=legend_handles)
+        plt.legend(handles=legend_handles, bbox_to_anchor=(1.04, 1), loc="upper left")
 
     # Set title
     plt.title(video_id)
     plt.tight_layout()
+    # plt.tight_layout(rect=[0, 0, 0.75, 1])
     plt.show()
 
     # Plot using streamlit if desired
