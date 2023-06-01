@@ -9,6 +9,11 @@ import argparse
 import csv
 import json
 import matplotlib.pyplot as plt
+import numpy
+
+colors = ['orange', 'pink', 'gold', 'cornflowerblue', 'cyan', 'lime', 'grey', 'violet', 'palegreen', 'khaki',
+          'lightsalmon', 'chocolate', 'plum', 'springgreen', 'hotpink', 'lightcoral', 'turquoise', 'moccasin',
+          'mediumpurple', 'paleturquoise', 'wheat', 'saddlebrown']
 
 
 def plot_histogram(annotations_file, label_info_file):
@@ -46,16 +51,34 @@ def plot_histogram(annotations_file, label_info_file):
 
     label_names = [x['name'] for x in label_list]
     label_frequencies = [x['frequency'] for x in label_list]
+    categories = [x['category'] for x in label_list]
+    categories_unique = numpy.unique(numpy.array(categories))
+
+    # Get a color vector
+    category_color = {categories_unique[i]: colors[i] for i in range(len(categories_unique))}
+    color_list = [category_color[x['category']] for x in label_list]
+    print(color_list)
 
     # Plot histogram, each category will have a distinct color
-    plt.bar([x for x in range(len(label_frequencies))], label_frequencies)
-    plt.xticks(ticks=[x for x in range(len(label_frequencies))], labels=label_names, rotation='vertical')
+    xticks = [x for x in range(len(label_frequencies))]
+    plt.bar(xticks, label_frequencies, color=color_list)
+    plt.xticks(ticks=xticks, labels=label_names, rotation='vertical')
+    plt.xlim(-0.5, xticks[-1]+0.5)
+    plt.title('Class frequency (Nouns)')
+    plt.ylabel('Frequency')
+    plt.xlabel('Class label')
+
+    # Add category text
+    # May not be implemented, the text boxes overlap as there is very little room between categories
+    """previous = None
+    for i, category in enumerate(categories):
+        if category != previous:
+            previous = category
+            plt.text(xticks[i], 100, category.capitalize(), rotation='vertical',
+                     bbox=dict(facecolor=category_color[category], alpha=0.5))"""
+
     plt.tight_layout()
     plt.show()
-
-    """label_frequency = dict()
-    for annotation in annotations['database']['annotations'].values()['annotations']:
-        print(annotation)"""
 
 
 if __name__ == "__main__":
