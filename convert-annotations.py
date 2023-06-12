@@ -187,8 +187,5 @@ def convert_annotations(input_file, output_file, video_info_file):
     vid_list_csv.close()
 
 
-
-
-
 if __name__ == "__main__":
     convert_annotations(sys.argv[1], sys.argv[2], sys.argv[3])

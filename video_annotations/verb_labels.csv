@@ -1,0 +1,22 @@
+verb,old_id,new_id
+uncover,83,0
+cover,36,1
+add,46,2
+stir,10,3
+remove,12,4
+pour,9,5
+put,1,6
+transfer,11,7
+shake,15,8
+crack,30,9
+move,11,10
+spread,27,11
+coat,66,12
+flip,22,13
+poke,32,14
+cut,7,15
+clean,2,16
+remove ,12,17
+strain,37,18
+move ,11,19
+grate,77,20
