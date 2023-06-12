@@ -1,4 +1,4 @@
-narration_id,video_id,narration_timestamp,stop_timestamp,narration,verb,verb_class,noun,noun_class
+narration_id,video_id,start_timestamp,stop_timestamp,narration,verb,verb_class,noun,noun_class
 P01_3_0,P01_3,00:01:50.40,00:01:50.90,uncover pot,uncover,83,pot,29
 P01_3_1,P01_3,00:01:50.90,00:01:51.90,cover pot,cover,36,pot,29
 P01_3_2,P01_3,00:01:55.00,00:01:56.00,uncover pot,uncover,83,pot,29

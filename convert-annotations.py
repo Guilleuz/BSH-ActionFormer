@@ -63,6 +63,39 @@ def load_video_info(input_path):
     return video_dict
 
 
+# Takes the action annotations for a video and saves them in the video dictionary
+# Also updates the already_processed_videos list
+def add_video_annotations(already_processed_videos, noun_annotations, noun_database, prev_video, verb_annotations,
+                          verb_database, vid_list_csv, video_dict):
+    vid_list_csv.write(prev_video + '.mp4\n')
+
+    # Save the video as already processed
+    already_processed_videos.append(str(prev_video))
+
+    # Create two dictionaries with the videos' annotations, its resolution, duration and subset
+    video_dict_nouns = {
+        prev_video: {
+            "annotations": noun_annotations,
+            "resolution": video_dict[prev_video]["resolution"],
+            "duration": video_dict[prev_video]["duration"],
+            "subset": video_dict[prev_video]["subset"]
+        }
+    }
+
+    video_dict_verbs = {
+        prev_video: {
+            "annotations": verb_annotations,
+            "resolution": video_dict[prev_video]["resolution"],
+            "duration": video_dict[prev_video]["duration"],
+            "subset": video_dict[prev_video]["subset"]
+        }
+    }
+
+    # Add the dictionaries to the noun and verb lists
+    noun_database.update(video_dict_nouns)
+    verb_database.update(video_dict_verbs)
+
+
 def convert_annotations(input_file, output_file, video_info_file):
     # Load video information
     video_dict = load_video_info(video_info_file)
@@ -103,33 +136,8 @@ def convert_annotations(input_file, output_file, video_info_file):
             # If the last video was not empty, we save its annotations
             elif prev_video != "":
                 # Output the videos' name to the vid_list.csv
-                vid_list_csv.write(prev_video + '.mp4\n')
-
-                # Save the video as already processed
-                already_processed_videos.append(str(prev_video))
-
-                # Create two dictionaries with the videos' annotations, its resolution, duration and subset
-                video_dict_nouns = {
-                    prev_video: {
-                        "annotations": noun_annotations,
-                        "resolution": video_dict[prev_video]["resolution"],
-                        "duration": video_dict[prev_video]["duration"],
-                        "subset": video_dict[prev_video]["subset"]
-                    }
-                }
-
-                video_dict_verbs = {
-                    prev_video: {
-                        "annotations": verb_annotations,
-                        "resolution": video_dict[prev_video]["resolution"],
-                        "duration": video_dict[prev_video]["duration"],
-                        "subset": video_dict[prev_video]["subset"]
-                    }
-                }
-
-                # Add the dictionaries to the noun and verb lists
-                noun_database.update(video_dict_nouns)
-                verb_database.update(video_dict_verbs)
+                add_video_annotations(already_processed_videos, noun_annotations, noun_database, prev_video,
+                                      verb_annotations, verb_database, vid_list_csv, video_dict)
 
             # Get the new videos' name, create empty annotation lists
             prev_video = row["video_id"]
@@ -164,6 +172,10 @@ def convert_annotations(input_file, output_file, video_info_file):
         # Append the dictionary to the videos' list
         verb_annotations.append(verb_dict)
 
+    # Append the last video's annotations
+    add_video_annotations(already_processed_videos, noun_annotations, noun_database, prev_video, verb_annotations,
+                          verb_database, vid_list_csv, video_dict)
+
     # Create and write the final json files for noun and verb annotations
     noun_database_complete = {"version": output_file + "_noun", "database": noun_database}
     verb_database_complete = {"version": output_file + "_verb", "database": verb_database}
@@ -173,6 +185,9 @@ def convert_annotations(input_file, output_file, video_info_file):
     verb_output = open(output_file_verbs, 'w+')
     json.dump(verb_database_complete, verb_output)
     vid_list_csv.close()
+
+
+
 
 
 if __name__ == "__main__":
