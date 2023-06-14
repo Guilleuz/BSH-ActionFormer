@@ -48,17 +48,17 @@ def reduce_label_range(annotations_file_path):
         noun_id = row['noun_class']
         verb_id = row['verb_class']
 
-        if noun_label not in noun_label_ids.keys():
-            noun_label_ids[noun_label] = {'old_label': noun_id, 'new_label': noun_label_counter}
+        if noun_id not in noun_label_ids.keys():
+            noun_label_ids[noun_id] = {'label_name': noun_label, 'new_label': noun_label_counter}
             noun_label_counter += 1
 
-        if verb_label not in verb_label_ids.keys():
-            verb_label_ids[verb_label] = {'old_label': verb_id, 'new_label': verb_label_counter}
+        if verb_id not in verb_label_ids.keys():
+            verb_label_ids[verb_id] = {'label_name': verb_label, 'new_label': verb_label_counter}
             verb_label_counter += 1
 
         # Change the label's id
-        row['noun_class'] = noun_label_ids[noun_label]['new_label']
-        row['verb_class'] = verb_label_ids[verb_label]['new_label']
+        row['noun_class'] = noun_label_ids[noun_id]['new_label']
+        row['verb_class'] = verb_label_ids[verb_id]['new_label']
 
         # Write the modified row to the output file
         writer.writerow(row)
@@ -75,13 +75,14 @@ def reduce_label_range(annotations_file_path):
 # Saves a dictionary of label ids (of type 'noun' or 'verb') to a csv file
 def save_label_ids(label_ids_dict, label_type):
     output_file = open(label_type + '_labels.csv', 'w', newline='')
-    output_writer = csv.DictWriter(output_file, fieldnames=[label_type, 'old_id', 'new_id'])
+    output_writer = csv.DictWriter(output_file, fieldnames=['label_name', 'old_id', 'new_id'])
 
     output_writer.writeheader()
 
-    for label in label_ids_dict.keys():
-        output_writer.writerow({label_type: label, 'old_id': label_ids_dict[label]['old_label'],
-                                'new_id': label_ids_dict[label]['new_label']})
+    for label_id in label_ids_dict.keys():
+        print(label_ids_dict[label_id])
+        output_writer.writerow({'label_name': label_ids_dict[label_id]['label_name'], 'old_id': label_id,
+                                'new_id': label_ids_dict[label_id]['new_label']})
 
 
 if __name__ == "__main__":

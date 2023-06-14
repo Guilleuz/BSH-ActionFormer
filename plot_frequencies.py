@@ -64,7 +64,7 @@ def plot_histogram(annotations_file, label_info_file):
     plt.bar(xticks, label_frequencies, color=color_list)
     plt.xticks(ticks=xticks, labels=label_names, rotation='vertical')
     plt.xlim(-0.5, xticks[-1]+0.5)
-    plt.title('Class frequency (Nouns)')
+    plt.title('Class frequency')
     plt.ylabel('Frequency')
     plt.xlabel('Class label')
 
