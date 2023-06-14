@@ -181,9 +181,9 @@ def convert_annotations(input_file, output_file, video_info_file):
     verb_database_complete = {"version": output_file + "_verb", "database": verb_database}
 
     noun_output = open(output_file_nouns, 'w+')
-    json.dump(noun_database_complete, noun_output)
+    json.dump(noun_database_complete, noun_output, indent=2)
     verb_output = open(output_file_verbs, 'w+')
-    json.dump(verb_database_complete, verb_output)
+    json.dump(verb_database_complete, verb_output, indent=2)
     vid_list_csv.close()
 
 
