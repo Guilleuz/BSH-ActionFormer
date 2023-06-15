@@ -40,13 +40,22 @@ def remove_unused(noun_annotations_file, verb_annotations_file, noun_labels_file
     for row in verb_labels_csv:
         verb_label_dict[row['old_id']] = row['new_id']
 
+    # Any videos with no annotations in the range will be removed
+    # We store those videos in two lists during the loop
+    nouns_empty_videos = list()
+    verbs_empty_videos = list()
+
+    # For every video in the json file
     for video_id in noun_database.keys():
+        # Get the video's annotation list
         noun_annotation_list = noun_database[video_id]['annotations']
         verb_annotation_list = verb_database[video_id]['annotations']
 
+        # Empty the list in the json file
         noun_database[video_id]['annotations'] = list()
         verb_database[video_id]['annotations'] = list()
 
+        # For every annotation, keep it only if the label used is in the new range
         for i in range(len(noun_annotation_list)):
             noun_annotation = noun_annotation_list[i]
             verb_annotation = verb_annotation_list[i]
@@ -69,6 +78,23 @@ def remove_unused(noun_annotations_file, verb_annotations_file, noun_labels_file
                 verb_annotation['label'] = new_verb_id
 
                 verb_database[video_id]['annotations'].append(verb_annotation)
+
+        # If there are no annotations, remove the video from the json database
+        # We add the video to the empty list, and we will delete them after the loop is over
+        if not noun_database[video_id]['annotations']:
+            print("No noun annotations for", video_id)
+            nouns_empty_videos.append(video_id)
+
+        if not verb_database[video_id]['annotations']:
+            print("No verb annotations for", video_id)
+            verbs_empty_videos.append(video_id)
+
+    # Delete any video without annotations
+    for video_id in nouns_empty_videos:
+        del noun_database[video_id]
+
+    for video_id in verbs_empty_videos:
+        del verb_database[video_id]
 
     # Output the new annotations as JSON files
     json_object_nouns = json.dumps(noun_annotations_json, indent=2)
