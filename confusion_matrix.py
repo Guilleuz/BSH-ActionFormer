@@ -1,4 +1,5 @@
 # Guillermo Enguita Lahoz 801618
+
 # This script takes as input the intervals predicted for a video (or videos),
 # annotated with their start and end times, as well as their matching labels. It also requires an input file with all
 # the ground truth intervals on the video(s). Furthermore, a csv file with the class name for each of the label
