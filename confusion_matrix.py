@@ -32,12 +32,6 @@ def get_confusion_matrix(ground_truth, predictions, label_names_file, iou_thresh
     label_ids = {unique_labels[i]: i for i in range(unique_labels.shape[0])}
     confusion_matrix = np.zeros((len(unique_labels_gt), len(unique_labels)), dtype=int)
 
-    # Load label names
-    label_names = open(label_names_file, newline='\n')
-    reader = csv.reader(label_names, delimiter=',', quotechar='|')
-    label_names_dict = {int(row[0]): row[1] for row in reader}
-    unique_label_names = [label_names_dict[label] for label in unique_labels]
-
     # For each interval in the ground truth
     for i in range(ground_truth.shape[0]):
         gt_label = ground_truth['label'][i]
@@ -65,13 +59,48 @@ def get_confusion_matrix(ground_truth, predictions, label_names_file, iou_thresh
                 pred_label = predictions['label'][j]
                 confusion_matrix[label_ids[gt_label], label_ids[pred_label]] += 1
 
+    # Search for any empty columns
+    empty_columns = list()
+
+    # For every column
+    for i in range(len(unique_labels)):
+        empty = True
+
+        # Check each element
+        for j in range(len(unique_labels_gt)):
+
+            # If an element is not 0, the column won't be empty
+            if confusion_matrix[j][i] != 0:
+                empty = False
+                break
+
+        if empty:
+            empty_columns.append(i)
+
+    # Remove the existing empty columns, as long as it is not in the ground truth
+    for i, column in enumerate(empty_columns):
+        if unique_labels[column] not in unique_labels_gt:
+            confusion_matrix = np.delete(confusion_matrix, column, 1)
+            unique_labels = np.delete(unique_labels, column)
+
+            # Update the indexes of the following empty columns
+            for j in range(i, len(empty_columns)):
+                empty_columns[j] -= 1
+
+    # Load label names
+    label_names = open(label_names_file, newline='\n')
+    reader = csv.reader(label_names, delimiter=',', quotechar='|')
+    label_names_dict = {int(row[0]): row[1] for row in reader}
+    unique_label_names = [label_names_dict[label] for label in unique_labels]
+
     # Plot the confusion matrix
     df_cm = DataFrame(confusion_matrix, index=[i for i in unique_label_names[0:len(unique_labels_gt)]],
                       columns=[i for i in unique_label_names])
-    plt.figure(figsize=(10, 7))
-    s = sn.heatmap(df_cm, annot=True, cmap="crest", fmt="g")
+    fig = plt.figure(figsize=(10, 7)) # 15, 10
+    s = sn.heatmap(df_cm, annot=True, cmap="crest", fmt="g", cbar=True, robust=True, linewidth=0.01, linecolor='w')
+    # sn.set(font_scale=2)  # OK for nouns
     s.set(xlabel='Predicted Class', ylabel='Ground Truth Class')
-    plt.title(title)
+    plt.title(title, fontweight='bold', fontsize='15')
     plt.tight_layout()
     plt.show()
 
@@ -97,10 +126,11 @@ def process_input(ground_truth_file, predictions_file, label_names_file, iou_thr
         for video in video_names:
             video_ground_truth = ground_truth.get_group(video).reset_index()
             video_predictions = predictions.get_group(video).reset_index()
-            get_confusion_matrix(video_ground_truth, video_predictions, label_names_file, iou_threshold, video)
+            get_confusion_matrix(video_ground_truth, video_predictions, label_names_file, iou_threshold,
+                                 "Confusion Matrix, video" + video)
     else:
         # Else, plot a united confusion matrix
-        get_confusion_matrix(ground_truth, predictions, label_names_file, iou_threshold, "")
+        get_confusion_matrix(ground_truth, predictions, label_names_file, iou_threshold, "Confusion Matrix")
 
 
 if __name__ == "__main__":
