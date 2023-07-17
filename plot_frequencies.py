@@ -9,14 +9,15 @@ import argparse
 import csv
 import json
 import matplotlib.pyplot as plt
+import matplotlib.patches as mpatches
 import numpy
 
-colors = ['orange', 'pink', 'gold', 'cornflowerblue', 'cyan', 'lime', 'grey', 'violet', 'palegreen', 'khaki',
+colors = ['orange', 'pink', 'gold', 'cornflowerblue', 'cyan', 'lime', 'grey', 'violet', 'green', 'khaki',
           'lightsalmon', 'chocolate', 'plum', 'springgreen', 'hotpink', 'lightcoral', 'turquoise', 'moccasin',
           'mediumpurple', 'paleturquoise', 'wheat', 'saddlebrown']
 
 
-def plot_histogram(annotations_file, label_info_file):
+def plot_histogram(annotations_file, label_info_file, args):
     # Read the annotations file and count the labels
     annotations_json = open(annotations_file)
     annotations = json.load(annotations_json)
@@ -47,7 +48,7 @@ def plot_histogram(annotations_file, label_info_file):
     # Sort the list by frequency and group the labels by category
     label_list.sort(key=lambda x: x['frequency'], reverse=True)
     label_list.sort(key=lambda x: x['category'], reverse=True)
-    print(label_list)
+    # print(label_list)
 
     label_names = [x['name'] for x in label_list]
     label_frequencies = [x['frequency'] for x in label_list]
@@ -57,25 +58,30 @@ def plot_histogram(annotations_file, label_info_file):
     # Get a color vector
     category_color = {categories_unique[i]: colors[i] for i in range(len(categories_unique))}
     color_list = [category_color[x['category']] for x in label_list]
-    print(color_list)
+    # print(color_list)
 
     # Plot histogram, each category will have a distinct color
+    fig = plt.figure()
     xticks = [x for x in range(len(label_frequencies))]
     plt.bar(xticks, label_frequencies, color=color_list)
-    plt.xticks(ticks=xticks, labels=label_names, rotation='vertical')
+    plt.yticks(fontsize='20')
+    plt.xticks(ticks=xticks, labels=label_names, rotation='vertical', fontsize='20')
     plt.xlim(-0.5, xticks[-1]+0.5)
-    plt.title('Class frequency')
-    plt.ylabel('Frequency')
-    plt.xlabel('Class label')
+    plt.title('Class frequency', fontweight='bold', fontsize='25')
+    plt.ylabel('Frequency', fontweight='bold', fontsize='20')
+    plt.xlabel('Class label', fontweight='bold', fontsize='20')
+    fig.set_size_inches(20.5, 10.5)
 
-    # Add category text
-    # May not be implemented, the text boxes overlap as there is very little room between categories
-    """previous = None
-    for i, category in enumerate(categories):
-        if category != previous:
-            previous = category
-            plt.text(xticks[i], 100, category.capitalize(), rotation='vertical',
-                     bbox=dict(facecolor=category_color[category], alpha=0.5))"""
+    if "hide_legend" not in args:
+        # Plot legend
+        legend_handles = list()
+
+        # Create a handle for each category
+        for category in reversed(category_color):
+            handle = mpatches.Patch(color=category_color[category], label=category)
+            legend_handles.append(handle)
+
+        plt.legend(handles=legend_handles, bbox_to_anchor=(1.04, 1), loc="upper left", prop={'size': 20})
 
     plt.tight_layout()
     plt.show()
@@ -94,9 +100,10 @@ if __name__ == "__main__":
     parser.add_argument('AnnotationsFile', help="JSON file that contains all the annotations to process")
     parser.add_argument('LabelInfoFile', help="CSV file that contains in each row a label and its matching name and "
                                               "category")
+    parser.add_argument('--hide_legend', action='store_true', default=argparse.SUPPRESS)
 
     # Parse the arguments
     args = parser.parse_args()
 
-    plot_histogram(args.AnnotationsFile, args.LabelInfoFile)
+    plot_histogram(args.AnnotationsFile, args.LabelInfoFile, args)
 
