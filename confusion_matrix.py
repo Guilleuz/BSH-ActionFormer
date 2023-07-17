@@ -11,10 +11,6 @@
 # It can be called with:
 # python confusion_matrix.py <ground truth file> <predictions file> <label names file> <IoU threshold> <score threshold>
 
-# TODO vectorize operations
-# May be a necessity, it takes too long for Epic Kitchens
-# Probably won't be implemented, there are too many classes and the matrix is pretty much unreadable
-
 import argparse
 import csv
 

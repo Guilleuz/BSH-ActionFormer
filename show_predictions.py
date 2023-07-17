@@ -68,16 +68,17 @@ def load_intervals(intervals_file, is_pred=False, score_threshold=0.1):
 
 
 # Action colors, if max label is higher than the number of colors, there will be repeated colors
-colors = ['tab:blue', 'tab:orange', 'tab:green', 'tab:red', 'tab:purple', 'tab:brown', 'tab:pink', 'tab:gray',
+colors = ['red', 'green', 'tab:blue', 'tab:orange', 'tab:green', 'tab:red', 'tab:purple', 'tab:brown', 'tab:pink', 'tab:gray',
           'tab:olive', 'tab:cyan', 'yellow', 'violet', 'palegreen', 'sandybrown', 'magenta', 'purple',
           'cyan', 'olivedrab', 'black', 'peru', 'darkblue']
 
 
 # Creates a legend, including all the label names matching their respective colors
-def get_legend(unique_labels, color_by_label, label_names):
+def get_legend(unique_labels, color_by_label, label_names, label_dictionary):
     legend_handles = list()
     for label in reversed(unique_labels):
-        handle = mpatches.Patch(color=color_by_label[label], label=label_names[label])
+        handle = mpatches.Patch(color=color_by_label[label_dictionary[label] % len(color_by_label)],
+                                label=label_names[label])
         legend_handles.append(handle)
 
     return legend_handles
@@ -115,8 +116,17 @@ def get_best_intervals(ground_truth_intervals, prediction_intervals):
     return best_predictions
 
 
+# Reads the reduced label range file, and outputs a dictionary with the keys being the label ids, and the values a
+# unique number between 0 and the number of labels - 1
+def read_label_range(label_range_file):
+    range_file = open(label_range_file)
+    csv_reader = csv.reader(range_file)
+    next(csv_reader)  # Skip the header
+    return {int(row[1]): int(row[2]) for row in csv_reader}
+
+
 # Plots the ground truth and the predicted intervals in a video given its id
-def plot_intervals(ground_truth_videos, prediction_videos, video_id, label_names, args):
+def plot_intervals(ground_truth_videos, prediction_videos, video_id, label_names, label_dictionary, args):
     # Get ground truth and prediction intervals for the given video
     ground_truth_intervals = ground_truth_videos[video_id]
     prediction_intervals = prediction_videos[video_id]
@@ -151,17 +161,15 @@ def plot_intervals(ground_truth_videos, prediction_videos, video_id, label_names
 
     # Get the colors for the intervals
     # If the number of unique labels is higher than the number of colors, they will start repeating
-    color_by_label = {int(label): colors[np.where(unique_labels == label)[0][0] % len(colors)]
-                      for label in unique_labels}
-    colors_ground = [color_by_label[i] for i in labels_ground]
-    colors_pred = [color_by_label[i] for i in labels_pred]
+    colors_ground = [colors[label_dictionary[i] % len(colors)] for i in labels_ground]
+    colors_pred = [colors[label_dictionary[i] % len(colors)] for i in labels_pred]
 
     # Plot the intervals
     fig, ax = plt.subplots()
-    fig.set_size_inches(18.5, 10.5)
+    fig.set_size_inches(30.5, 10.5)
 
     # Plots predicted and ground truth intervals
-    ax.broken_barh(intervals, (0, 1), facecolors=colors_ground)
+    ax.broken_barh(intervals, (0, 0.5), facecolors=colors_ground)
 
     # If the flag separated is set plot a barh for each label in the predictions
     if "separated" in args:
@@ -169,9 +177,9 @@ def plot_intervals(ground_truth_videos, prediction_videos, video_id, label_names
         unique_pred_labels = np.unique(labels_pred)
 
         # Init bar height, ytick positions and labels
-        height = 1
-        yticks = [0.5]
-        ytick_labels = ['Ground']
+        height = 0.5
+        yticks = [0.25]
+        ytick_labels = ['Ground Truth']
 
         # For each label in the predictions
         for label in unique_pred_labels:
@@ -179,38 +187,38 @@ def plot_intervals(ground_truth_videos, prediction_videos, video_id, label_names
             intervals_label = [intervals_pred[i] for i in range(len(intervals_pred)) if labels_pred[i] == label]
 
             # Plot a barh with only those intervals
-            ax.broken_barh(intervals_label, (height, 1), color=color_by_label[label], alpha=0.5)
+            ax.broken_barh(intervals_label, (height, 0.5), color=colors[label_dictionary[label] % len(colors)], alpha=0.7)
             ytick_labels.append(label_names[label])
-            yticks.append(height + 0.5)
-            height += 1
+            yticks.append(height + 0.25)
+            height += 0.5
 
         # Set ticks and vertical limit
         ax.set_yticks(yticks)
-        ax.set_yticklabels(ytick_labels)
-        ax.set_ylim(0, yticks[-1] + 0.5)
+        ax.set_yticklabels(ytick_labels, fontsize=25)
+        ax.set_ylim(0, yticks[-1] + 0.25)
+
     else:
         # If the flag is not set, all the predicted intervals will be plotted in the same barh
         # Not recommended if there is a lot of overlap between the actions
         ax.broken_barh(intervals_pred, (1, 1), facecolors=colors_pred)
         ax.set_yticks([0.5, 1.5])
-        ax.set_yticklabels(['Ground', 'Predicted'])
+        ax.set_yticklabels(['Ground Truth', 'Predicted'])
         ax.set_ylim(0, 2)
 
     # Set graph limits
     ax.set_xlim(minx, maxx)
 
     # Set labels
-    ax.set_xlabel('Time (seconds)')
+    ax.set_xlabel('Time (seconds)', fontweight="bold", fontsize=30)
 
     # Set legend, if the hide_legend flag is not set
     if "hide_legend" not in args:
-        legend_handles = get_legend(unique_labels, color_by_label, label_names)
+        legend_handles = get_legend(unique_labels, colors, label_names, label_dictionary)
         plt.legend(handles=legend_handles, bbox_to_anchor=(1.04, 1), loc="upper left")
 
     # Set title
-    plt.title(video_id)
+    plt.title("Predicted intervals for " + video_id, fontweight="bold", fontsize=30)
     plt.tight_layout()
-    # plt.tight_layout(rect=[0, 0, 0.75, 1])
     plt.show()
 
     # Plot using streamlit if desired
@@ -262,6 +270,9 @@ def show_predictions(ground_truth_file, predictions_file, args):
     reader = csv.reader(label_names_file, delimiter=',', quotechar='|')
     label_names = {int(row[0]): row[1] for row in reader}
 
+    # Read reduced label range csv file
+    label_dictionary = read_label_range(args.label_range_file)
+
     # Print the names of the loaded videos
     print("Loaded videos:")
     for video in ground_truth_videos:
@@ -269,11 +280,11 @@ def show_predictions(ground_truth_file, predictions_file, args):
 
     if "web" in args or "video_id" in args:
         # If we are using streamlit, plot only one graph
-        plot_intervals(ground_truth_videos, prediction_videos, args.video_id, label_names, args)
+        plot_intervals(ground_truth_videos, prediction_videos, args.video_id, label_names, label_dictionary, args)
     else:
         # Else, plot a graph for each video
         for video in ground_truth_videos:
-            plot_intervals(ground_truth_videos, prediction_videos, video, label_names, args)
+            plot_intervals(ground_truth_videos, prediction_videos, video, label_names, label_dictionary, args)
 
 
 if __name__ == "__main__":
@@ -307,9 +318,11 @@ if __name__ == "__main__":
     parser.add_argument('--hide_legend', action='store_true', default=argparse.SUPPRESS,
                         help="If this flag is set, the graph will not show the legend. Recommended if the number of "
                              "classes is very high.")
-    parser.add_argument('--web', action='store_true', default=argparse.SUPPRESS, help="Use only when calling from streamlit,"
-                                                                            "provides an interactive graph")
+    parser.add_argument('--web', action='store_true', default=argparse.SUPPRESS,
+                        help="Use only when calling from streamlit, provides an interactive graph")
     parser.add_argument('--video_id', default=argparse.SUPPRESS, help="Name of the video to plot, only for streamlit")
+    parser.add_argument("--label_range_file", help="File which contains the reduced label range for the classes. "
+                                                   "Required for assigning a color to each of the classes.")
 
     args = parser.parse_args()
 
