@@ -68,8 +68,8 @@ def load_intervals(intervals_file, is_pred=False, score_threshold=0.1):
 
 
 # Action colors, if max label is higher than the number of colors, there will be repeated colors
-colors = ['red', 'green', 'tab:blue', 'tab:orange', 'tab:green', 'tab:red', 'tab:purple', 'tab:brown', 'tab:pink', 'tab:gray',
-          'tab:olive', 'tab:cyan', 'yellow', 'violet', 'palegreen', 'sandybrown', 'magenta', 'purple',
+colors = ['red', 'green', 'tab:blue', 'tab:orange', 'tab:green', 'tab:red', 'tab:purple', 'tab:brown', 'tab:pink',
+          'tab:gray', 'tab:olive', 'tab:cyan', 'palegreen', 'yellow', 'violet', 'sandybrown', 'magenta', 'purple',
           'cyan', 'olivedrab', 'black', 'peru', 'darkblue']
 
 
@@ -77,8 +77,11 @@ colors = ['red', 'green', 'tab:blue', 'tab:orange', 'tab:green', 'tab:red', 'tab
 def get_legend(unique_labels, color_by_label, label_names, label_dictionary):
     legend_handles = list()
     for label in reversed(unique_labels):
-        handle = mpatches.Patch(color=color_by_label[label_dictionary[label] % len(color_by_label)],
-                                label=label_names[label])
+        if label in label_dictionary.keys():
+            color = color_by_label[label_dictionary[label] % len(color_by_label)]
+        else:
+            color = color_by_label[label % len(color_by_label)]
+        handle = mpatches.Patch(color=color, label=label_names[label])
         legend_handles.append(handle)
 
     return legend_handles
@@ -162,7 +165,16 @@ def plot_intervals(ground_truth_videos, prediction_videos, video_id, label_names
     # Get the colors for the intervals
     # If the number of unique labels is higher than the number of colors, they will start repeating
     colors_ground = [colors[label_dictionary[i] % len(colors)] for i in labels_ground]
-    colors_pred = [colors[label_dictionary[i] % len(colors)] for i in labels_pred]
+
+    # TODO fix, throws an error if the predicted action is not within the action range of the original dataset
+    # colors_pred = [colors[label_dictionary[i] % len(colors)] for i in labels_pred]
+
+    colors_pred = list()
+    for i in labels_pred:
+        if i in label_dictionary.keys():
+            colors_pred.append(colors[label_dictionary[i] % len(colors)])
+        else:
+            colors_pred.append(colors [i % len(colors)])
 
     # Plot the intervals
     fig, ax = plt.subplots()
@@ -187,7 +199,12 @@ def plot_intervals(ground_truth_videos, prediction_videos, video_id, label_names
             intervals_label = [intervals_pred[i] for i in range(len(intervals_pred)) if labels_pred[i] == label]
 
             # Plot a barh with only those intervals
-            ax.broken_barh(intervals_label, (height, 0.5), color=colors[label_dictionary[label] % len(colors)], alpha=0.7)
+            if label in label_dictionary.keys():
+                color = colors[label_dictionary[label] % len(colors)]
+            else:
+                color = colors[label % len(colors)]
+            ax.broken_barh(intervals_label, (height, 0.5), color=color, alpha=0.7)
+
             ytick_labels.append(label_names[label])
             yticks.append(height + 0.25)
             height += 0.5
@@ -313,7 +330,7 @@ if __name__ == "__main__":
     parser.add_argument('--topk', action='store_true', default=argparse.SUPPRESS,
                         help="If this flag is set, the graph will only show the highest rated intervals for each video")
     parser.add_argument('--best_intervals', action='store_true', default=argparse.SUPPRESS,
-                        help="If this flag is set, the graph will only show the highes rated intervals for each one"
+                        help="If this flag is set, the graph will only show the highest rated intervals for each one"
                              "of the ground truth instances in the video")
     parser.add_argument('--hide_legend', action='store_true', default=argparse.SUPPRESS,
                         help="If this flag is set, the graph will not show the legend. Recommended if the number of "
