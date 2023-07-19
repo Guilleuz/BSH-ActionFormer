@@ -51,13 +51,14 @@ def video_summary(annotations_filename):
 
         # Print video summary
         print("Video ", i, ", length ", duration, "(s), number of instances ", num_instances, ", temporal density ",
-              round(num_instances / duration, 3), "(actions per second)", ", different classes ",
+              round(num_instances / (duration / 60), 3), "(actions per minute)", ", different classes ",
               len(video_seen_classes), sep="")
 
     # Print dataset summary
     num_videos = len(annotations_db)
     print("\nDataset Summary")
-    print("Number of videos: ", num_videos, ", Average length: ", round(total_length / num_videos, 2),
+    print("Number of videos: ", num_videos, ", Total length: ", round(total_length, 2), ", Average length: ",
+          round(total_length / num_videos, 2), ", Total number of instances: ", total_instances,
           ", Average number of instances: ", round(total_instances / num_videos, 2), ", Number of different classes: ",
           len(seen_classes), sep="")
 

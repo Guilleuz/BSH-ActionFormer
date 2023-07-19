@@ -59,7 +59,7 @@ to a memory error, so it was necessary to make a script to divide each video int
 
 Said script can be found in `split_videos.py`, which can be executed using:
 
-    python split_videos.py <video folder> <video clip list file> <clip size in frames>
+    python split_videos.py <video folder> <video clip list file> <clip size in frames> <frame stride>
 
 Once the videos are split, we can extract their features using **Gluon CV** (it requires installation), 
 with the following command:

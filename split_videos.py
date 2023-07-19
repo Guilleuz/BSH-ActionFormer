@@ -10,7 +10,6 @@ import glob
 import os
 import sys
 from math import floor
-
 import cv2
 
 
