@@ -1,0 +1,14 @@
+category_name, id
+access,0
+manipulate,1
+retrieve,2
+merge,3
+block,4
+clean,5
+split,6
+leave,7
+transition,8
+monitor,9
+sense,10
+distribute,11
+other,12

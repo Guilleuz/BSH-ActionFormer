@@ -96,11 +96,11 @@ def get_confusion_matrix(ground_truth, predictions, label_names_file, iou_thresh
     # Plot the confusion matrix
     df_cm = DataFrame(confusion_matrix, index=[i for i in unique_label_names[0:len(unique_labels_gt)]],
                       columns=[i for i in unique_label_names])
-    fig = plt.figure(figsize=(10, 7)) # 15, 10
-    s = sn.heatmap(df_cm, annot=True, cmap="crest", fmt="g", cbar=True, robust=True, linewidth=0.01, linecolor='w')
-    # sn.set(font_scale=2)  # OK for nouns
+    sn.set(font_scale=1.5)  # OK for nouns
+    fig = plt.figure(figsize=(10, 7))  # 15, 10
+    s = sn.heatmap(df_cm, annot=True, cmap="crest", fmt="g", cbar=False, robust=True, linewidth=0.01, linecolor='w')
     s.set(xlabel='Predicted Class', ylabel='Ground Truth Class')
-    plt.title(title, fontweight='bold', fontsize='15')
+    plt.title(title, fontweight='bold', fontsize='20')
     plt.tight_layout()
     plt.show()
 
@@ -127,7 +127,7 @@ def process_input(ground_truth_file, predictions_file, label_names_file, iou_thr
             video_ground_truth = ground_truth.get_group(video).reset_index()
             video_predictions = predictions.get_group(video).reset_index()
             get_confusion_matrix(video_ground_truth, video_predictions, label_names_file, iou_threshold,
-                                 "Confusion Matrix, video" + video)
+                                 "Confusion Matrix, video " + video)
     else:
         # Else, plot a united confusion matrix
         get_confusion_matrix(ground_truth, predictions, label_names_file, iou_threshold, "Confusion Matrix")

@@ -55,8 +55,14 @@ def plot_histogram(annotations_file, label_info_file, args):
     categories = [x['category'] for x in label_list]
     categories_unique = numpy.unique(numpy.array(categories))
 
+    # Read each category's id
+    range_file = open(args.CategoryRangeFile)
+    csv_reader = csv.reader(range_file)
+    next(csv_reader)  # Skip the header
+    category_label_dict = {row[0]: int(row[1]) for row in csv_reader}
+
     # Get a color vector
-    category_color = {categories_unique[i]: colors[i] for i in range(len(categories_unique))}
+    category_color = {category: colors[category_label_dict[category]] for category in categories_unique}
     color_list = [category_color[x['category']] for x in label_list]
     # print(color_list)
 
@@ -65,12 +71,12 @@ def plot_histogram(annotations_file, label_info_file, args):
     xticks = [x for x in range(len(label_frequencies))]
     plt.bar(xticks, label_frequencies, color=color_list)
     plt.yticks(fontsize='20')
-    plt.xticks(ticks=xticks, labels=label_names, rotation='vertical', fontsize='20')
+    plt.xticks(ticks=xticks, labels=label_names, rotation='vertical', fontsize='25')
     plt.xlim(-0.5, xticks[-1]+0.5)
-    plt.title('Class frequency', fontweight='bold', fontsize='25')
-    plt.ylabel('Frequency', fontweight='bold', fontsize='20')
-    plt.xlabel('Class label', fontweight='bold', fontsize='20')
-    fig.set_size_inches(20.5, 10.5)
+    plt.title('Verb frequency (Corrected)', fontweight='bold', fontsize='30')
+    plt.ylabel('Frequency', fontweight='bold', fontsize='25')
+    plt.xlabel('Class label', fontweight='bold', fontsize='25')
+    fig.set_size_inches(18.5, 10.5)
 
     if "hide_legend" not in args:
         # Plot legend
@@ -100,6 +106,8 @@ if __name__ == "__main__":
     parser.add_argument('AnnotationsFile', help="JSON file that contains all the annotations to process")
     parser.add_argument('LabelInfoFile', help="CSV file that contains in each row a label and its matching name and "
                                               "category")
+    parser.add_argument('CategoryRangeFile', help="A csv file that contains an ID for each category, from 0 to the "
+                                                      "number of categories")
     parser.add_argument('--hide_legend', action='store_true', default=argparse.SUPPRESS)
 
     # Parse the arguments

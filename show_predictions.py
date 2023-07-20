@@ -76,11 +76,15 @@ colors = ['red', 'green', 'tab:blue', 'tab:orange', 'tab:green', 'tab:red', 'tab
 # Creates a legend, including all the label names matching their respective colors
 def get_legend(unique_labels, color_by_label, label_names, label_dictionary):
     legend_handles = list()
+    # For each unique label
     for label in reversed(unique_labels):
+        # Get the label's color
         if label in label_dictionary.keys():
             color = color_by_label[label_dictionary[label] % len(color_by_label)]
         else:
             color = color_by_label[label % len(color_by_label)]
+
+        # Create a handle with the label's name and color
         handle = mpatches.Patch(color=color, label=label_names[label])
         legend_handles.append(handle)
 
@@ -166,9 +170,6 @@ def plot_intervals(ground_truth_videos, prediction_videos, video_id, label_names
     # If the number of unique labels is higher than the number of colors, they will start repeating
     colors_ground = [colors[label_dictionary[i] % len(colors)] for i in labels_ground]
 
-    # TODO fix, throws an error if the predicted action is not within the action range of the original dataset
-    # colors_pred = [colors[label_dictionary[i] % len(colors)] for i in labels_pred]
-
     colors_pred = list()
     for i in labels_pred:
         if i in label_dictionary.keys():
@@ -198,11 +199,13 @@ def plot_intervals(ground_truth_videos, prediction_videos, video_id, label_names
             # Get the intervals with that label
             intervals_label = [intervals_pred[i] for i in range(len(intervals_pred)) if labels_pred[i] == label]
 
-            # Plot a barh with only those intervals
+            # Get the color
             if label in label_dictionary.keys():
                 color = colors[label_dictionary[label] % len(colors)]
             else:
                 color = colors[label % len(colors)]
+
+            # Plot a barh with only those intervals
             ax.broken_barh(intervals_label, (height, 0.5), color=color, alpha=0.7)
 
             ytick_labels.append(label_names[label])
