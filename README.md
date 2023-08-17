@@ -1,15 +1,17 @@
 # ActionFormer
 
-This folder contains all the scripts and data required to work with the
-[**ActionFormer**](https://github.com/happyharrycn/actionformer_release) model, 
-a transformer-based network for action detection.
+This folder contains all the scripts and data required to use BSH's cooking video dataset with the 
+[**ActionFormer**](https://github.com/happyharrycn/actionformer_release) model, a transformer-based network for action
+detection.
 
 ## Folder structure
 
 ### *Code* folder
 
 Contains all the code developed until now. *ActionFormer's* repository is stored in the `ActionFormer` subdirectory, the
-code has been slightly modified, mainly to output the intervals predicted by the model.
+code has been slightly modified, mainly to output the intervals predicted by the model. Also, we have added the options
+to train and evaluate a `TemporalMaxer` model and an architecture that uses a `TemporalMaxer` encoder and a Transformer
+based decoder, organized in a U-shaped structure.
 
 The `Scripts` subdirectory includes all the auxiliary python scripts needed to process the input data, so that our videos
 can be used with _ActionFormer_, as well as feature extraction and interval plotting, among others. 
@@ -21,8 +23,11 @@ model. The folder `video_annotaions` contains some extra annotations for the dat
 information of each video, two files which contain the class names associated to each of the labels, the original action
 annotations and a list with all the video names to process.
 
-Finally, the `output_intervals` folder has some of the intervals predicted by the model, which can be used as input for the plot script.
+Finally, the `output_intervals` folder has some intervals predicted by the model, which can be used as input for the plot script.
 
+### *Documents* folder
+
+Contains the final report for the project.
 
 ## Video metadata
 The script `process-videos.py` extracts information from each video in the input folder, such as its resolution, 
@@ -90,16 +95,32 @@ The config files used are the ones provided for the EpicKitchens dataset in the 
 our own data. After the testing, the model will output two csv files `ground_truth.csv` and `preds.csv`, which contain
 the original action intervals and the predicted ones.
 
+If you would like to use either the `TemporalMaxer` or the mixed model, you will need to modify the `backbone_type` 
+parameter in the `libs/core/config.py` `ActionFormer` file. Using the `alpha` parameter in the same file you will be able to modify
+the relevance given to the MaxPooling branch and the Transformer branch.
+
 ## Prediction Results
 To better visualize the results obtained after inference, we provide the `show_predictions.py` script, which will plot a
 graph showing the predicted action intervals and the actual ones. To run it, we will need the `ground_truth.csv` and 
-`preds.csv` files obtained after evaluation. 
+`preds.csv` files obtained after evaluation, as well as a csv file that contains each label's id and name. 
 
 To run the script, execute:
     
-    python show_predictions.py --ground_truth <ground csv file> --predictions <preds csv file> --threshold <value> --separated
+    python show_predictions.py --ground_truth <ground csv file> --predictions <preds csv file> 
+    --label_names <label names file> --threshold <value> --separated
 
 Furthermore, using the option `--help` will show all the available options. If the flag `--web` is set, and you run with 
 `streamlit run show_predictions.py -- [ARGS]`, the plot will generate an interactive html graph, using `streamlit`.
 
-![](/home/guille/PycharmProjects/BSH-ActionFormer/example_plot.png)
+![](./example_plot.png)
+
+Finally, the `confusion_matrix.py` script will generate a confusion matrix. It will require both interval files, 
+predicted and ground truth, as well as the label names file. You can use the option `--help` to show all the available
+options.
+
+To execute it:
+    
+    python confusion_matrix.py <ground truth file> <predictions file> <label names file>
+    <IoU threshold> <score threshold>
+
+![](./example_confusion_matrix.png)

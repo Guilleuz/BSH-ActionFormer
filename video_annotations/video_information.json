@@ -1,1 +1,1811 @@
-[{"id": "P01_1", "name": "DCA6323EBFC7_2021_04_14_115220.mp4", "framerate": 25, "duration": 205.64, "height": 480, "width": 640, "subset": "validation"}, {"id": "P01_2", "name": "DCA6323EBFC7_2021_04_14_173514.mp4", "framerate": 25, "duration": 23.24, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_3", "name": "DCA6323EBFC7_2021_04_15_123403.mp4", "framerate": 25, "duration": 311.8, "height": 480, "width": 640, "subset": "validation"}, {"id": "P01_4", "name": "DCA6323EBFC7_2021_04_16_121056.mp4", "framerate": 25, "duration": 157.44, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_5", "name": "DCA6323EBFC7_2021_04_17_080807.mp4", "framerate": 25, "duration": 232.72, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_6", "name": "DCA6323EBFC7_2021_04_17_124935.mp4", "framerate": 25, "duration": 375.56, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_7", "name": "DCA6323EBFC7_2021_04_18_123145.mp4", "framerate": 25, "duration": 77.92, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_8", "name": "DCA6323EBFC7_2021_05_01_172324.mp4", "framerate": 25, "duration": 53.2, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_9", "name": "DCA6323EBFC7_2021_05_01_172351.mp4", "framerate": 25, "duration": 2106.2, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_10", "name": "DCA6323EBFC7_2021_05_04_114907.mp4", "framerate": 25, "duration": 1704.24, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_11", "name": "DCA6323EBFC7_2021_05_09_090420.mp4", "framerate": 25, "duration": 425.88, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_12", "name": "DCA6327319BA_2020_06_24_202658.mp4", "framerate": 25, "duration": 179.92, "height": 480, "width": 640, "subset": "validation"}, {"id": "P01_13", "name": "DCA6327319BA_2020_09_14_152826.mp4", "framerate": 25, "duration": 12.52, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_14", "name": "DCA6327319BA_2020_09_14_153030.mp4", "framerate": 25, "duration": 18.52, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_15", "name": "DCA6327319BA_2020_11_22_190928.mp4", "framerate": 25, "duration": 231.88, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_16", "name": "DCA6327319BA_2020_11_22_193518.mp4", "framerate": 25, "duration": 227.92, "height": 480, "width": 640, "subset": "validation"}, {"id": "P01_17", "name": "DCA6327319BA_2021_01_12_114336.mp4", "framerate": 25, "duration": 836.16, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_18", "name": "DCA6327319BA_2021_01_18_114534.mp4", "framerate": 25, "duration": 1084.28, "height": 480, "width": 640, "subset": "validation"}, {"id": "P01_19", "name": "DCA6327319BA_2021_01_19_122409.mp4", "framerate": 25, "duration": 319.92, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_20", "name": "DCA6327319BA_2021_01_20_223946.mp4", "framerate": 25, "duration": 115.92, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_21", "name": "DCA6327319BA_2021_01_21_110822.mp4", "framerate": 25, "duration": 1148.36, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_22", "name": "DCA6327319BA_2021_01_27_130206.mp4", "framerate": 25, "duration": 83.8, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_23", "name": "DCA6327319BA_2021_02_02_131232.mp4", "framerate": 25, "duration": 187.88, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_24", "name": "DCA6327319BA_2021_02_15_130416.mp4", "framerate": 25, "duration": 728.12, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_25", "name": "DCA6327319BA_2021_02_16_111600.mp4", "framerate": 25, "duration": 700.08, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_26", "name": "DCA6327319BA_2021_02_16_121441.mp4", "framerate": 25, "duration": 231.88, "height": 480, "width": 640, "subset": "validation"}, {"id": "P01_27", "name": "DCA6327319BA_2021_03_15_122016.mp4", "framerate": 25, "duration": 632.08, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_28", "name": "DCA6327319BA_2021_03_19_121705.mp4", "framerate": 25, "duration": 211.84, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_29", "name": "DCA6327319BA_2021_04_14_130441.mp4", "framerate": 25, "duration": 261.04, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_30", "name": "DCA6327319E6_2020_06_23_213126.mp4", "framerate": 25, "duration": 231.72, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_31", "name": "DCA6327319E6_2020_06_24_151242.mp4", "framerate": 25, "duration": 494.84, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_32", "name": "DCA6327319E6_2020_06_24_152317.mp4", "framerate": 25, "duration": 371.96, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_33", "name": "DCA6327319E6_2020_06_24_210009.mp4", "framerate": 25, "duration": 1993.32, "height": 480, "width": 640, "subset": "validation"}, {"id": "P01_34", "name": "DCA6327319E6_2020_06_25_205058.mp4", "framerate": 25, "duration": 310.68, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_35", "name": "DCA6327319E6_2020_06_26_175029.mp4", "framerate": 25, "duration": 30.24, "height": 480, "width": 640, "subset": "validation"}, {"id": "P01_36", "name": "DCA6327319E6_2020_06_27_125617.mp4", "framerate": 25, "duration": 1826.2, "height": 480, "width": 640, "subset": "validation"}, {"id": "P01_37", "name": "DCA6327319E6_2020_06_28_123931.mp4", "framerate": 25, "duration": 1068.0, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_38", "name": "DCA6327319E6_2020_06_28_132657.mp4", "framerate": 25, "duration": 85.16, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_39", "name": "DCA6327319E6_2020_06_28_133424.mp4", "framerate": 25, "duration": 402.48, "height": 480, "width": 640, "subset": "validation"}, {"id": "P01_40", "name": "DCA6327319E6_2020_06_29_135034.mp4", "framerate": 25, "duration": 1131.08, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_41", "name": "DCA6327319E6_2020_06_29_211410.mp4", "framerate": 25, "duration": 1243.2, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_42", "name": "DCA6327319E6_2020_07_01_150313.mp4", "framerate": 25, "duration": 1277.16, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_43", "name": "DCA6327319E6_2020_07_01_213929.mp4", "framerate": 25, "duration": 1427.52, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_44", "name": "DCA6327319E6_2020_07_03_131231.mp4", "framerate": 25, "duration": 756.84, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_45", "name": "DCA6327319E6_2020_07_03_211702.mp4", "framerate": 25, "duration": 764.64, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_46", "name": "DCA6327319E6_2020_07_05_122409.mp4", "framerate": 25, "duration": 2614.0, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_47", "name": "DCA6327319E6_2020_07_05_215936.mp4", "framerate": 25, "duration": 1055.12, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_48", "name": "DCA6327319E6_2020_07_06_115633.mp4", "framerate": 25, "duration": 921.48, "height": 480, "width": 640, "subset": "validation"}, {"id": "P01_49", "name": "DCA6327319E6_2020_07_06_121426.mp4", "framerate": 25, "duration": 543.08, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_50", "name": "DCA6327319E6_2020_07_06_210726.mp4", "framerate": 25, "duration": 469.64, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_51", "name": "DCA6327319E6_2020_07_08_210011.mp4", "framerate": 25, "duration": 597.6, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_52", "name": "DCA6327319E6_2020_07_11_124048.mp4", "framerate": 25, "duration": 91.32, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_53", "name": "DCA6327319E6_2020_07_12_130111.mp4", "framerate": 25, "duration": 719.4, "height": 480, "width": 640, "subset": "validation"}, {"id": "P01_54", "name": "DCA6327319E6_2020_07_12_134136.mp4", "framerate": 25, "duration": 304.72, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_55", "name": "DCA6327319E6_2020_07_12_202633.mp4", "framerate": 25, "duration": 982.16, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_56", "name": "DCA6327319E6_2020_07_13_144555.mp4", "framerate": 25, "duration": 518.28, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_57", "name": "DCA6327319E6_2020_07_13_214523.mp4", "framerate": 25, "duration": 939.76, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_58", "name": "DCA6327319E6_2020_07_14_142933.mp4", "framerate": 25, "duration": 1377.76, "height": 480, "width": 640, "subset": "validation"}, {"id": "P01_59", "name": "DCA6327319E6_2020_07_16_123838.mp4", "framerate": 25, "duration": 1165.48, "height": 480, "width": 640, "subset": "validation"}, {"id": "P01_60", "name": "DCA6327319E6_2020_07_16_125653.mp4", "framerate": 25, "duration": 469.48, "height": 480, "width": 640, "subset": "validation"}, {"id": "P01_61", "name": "DCA6327319E6_2020_07_18_125123.mp4", "framerate": 25, "duration": 1751.8, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_62", "name": "DCA6327319E6_2020_07_20_143028.mp4", "framerate": 25, "duration": 1217.24, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_63", "name": "DCA6327319E6_2020_07_20_215825.mp4", "framerate": 25, "duration": 621.28, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_64", "name": "DCA6327319E6_2020_07_21_203102.mp4", "framerate": 25, "duration": 2401.76, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_65", "name": "DCA6327319E6_2020_07_23_213103.mp4", "framerate": 25, "duration": 1596.92, "height": 480, "width": 640, "subset": "validation"}, {"id": "P01_66", "name": "DCA6327319E6_2020_07_24_141647.mp4", "framerate": 25, "duration": 3846.36, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_67", "name": "DCA6327319E6_2020_07_24_220628.mp4", "framerate": 25, "duration": 401.8, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_68", "name": "DCA6327319E6_2020_07_26_131759.mp4", "framerate": 25, "duration": 2846.36, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_69", "name": "DCA6327319E6_2020_07_27_215423.mp4", "framerate": 25, "duration": 525.16, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_70", "name": "DCA6327319E6_2020_07_28_132844.mp4", "framerate": 25, "duration": 5708.04, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_71", "name": "DCA6327319E6_2020_08_01_132127.mp4", "framerate": 25, "duration": 1316.84, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_72", "name": "DCA6327319E6_2020_08_02_134052.mp4", "framerate": 25, "duration": 1597.24, "height": 480, "width": 640, "subset": "validation"}, {"id": "P01_73", "name": "DCA6327319E6_2020_08_06_134237.mp4", "framerate": 25, "duration": 1245.12, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_74", "name": "DCA6327319E6_2020_08_09_124130.mp4", "framerate": 25, "duration": 2694.16, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_75", "name": "DCA6327319E6_2020_08_12_123512.mp4", "framerate": 25, "duration": 1897.32, "height": 480, "width": 640, "subset": "validation"}, {"id": "P01_76", "name": "DCA6327319E6_2020_08_15_121638.mp4", "framerate": 25, "duration": 2681.8, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_77", "name": "DCA6327319E6_2020_08_23_220141.mp4", "framerate": 25, "duration": 319.92, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_78", "name": "DCA6327319E6_2020_08_24_150957.mp4", "framerate": 25, "duration": 271.88, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_79", "name": "DCA6327319E6_2020_08_25_114449.mp4", "framerate": 25, "duration": 924.16, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_80", "name": "DCA6327319E6_2020_08_26_121039.mp4", "framerate": 25, "duration": 604.04, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_81", "name": "DCA6327319E6_2020_08_27_211353.mp4", "framerate": 25, "duration": 1316.36, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_82", "name": "DCA6327319E6_2020_08_30_135152.mp4", "framerate": 25, "duration": 1188.28, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_83", "name": "DCA6327319E6_2020_08_31_132306.mp4", "framerate": 25, "duration": 1524.44, "height": 480, "width": 640, "subset": "validation"}, {"id": "P01_84", "name": "DCA6327319E6_2020_09_01_132119.mp4", "framerate": 25, "duration": 1932.6, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_85", "name": "DCA6327319E6_2020_09_02_124205.mp4", "framerate": 25, "duration": 3537.28, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_86", "name": "DCA6327319E6_2020_09_02_204450.mp4", "framerate": 25, "duration": 860.16, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_87", "name": "DCA6327319E6_2020_09_06_125516.mp4", "framerate": 25, "duration": 1492.44, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_88", "name": "DCA6327319E6_2020_09_06_133156.mp4", "framerate": 25, "duration": 2544.88, "height": 480, "width": 640, "subset": "validation"}, {"id": "P01_89", "name": "DCA6327319E6_2020_09_07_140251.mp4", "framerate": 25, "duration": 1668.48, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_90", "name": "DCA6327319E6_2020_09_08_141021.mp4", "framerate": 25, "duration": 592.04, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_91", "name": "DCA6327319E6_2020_09_08_201347.mp4", "framerate": 25, "duration": 1044.24, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_92", "name": "DCA6327319E6_2020_09_09_134727.mp4", "framerate": 25, "duration": 920.16, "height": 480, "width": 640, "subset": "validation"}, {"id": "P01_93", "name": "DCA6327319E6_2020_09_10_141208.mp4", "framerate": 25, "duration": 620.04, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_94", "name": "DCA6327319E6_2020_09_10_213544.mp4", "framerate": 25, "duration": 560.0, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_95", "name": "DCA6327319E6_2020_09_12_125845.mp4", "framerate": 25, "duration": 1716.52, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_96", "name": "DCA6327319E6_2020_09_17_124457.mp4", "framerate": 25, "duration": 1308.32, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_97", "name": "DCA6327319E6_2020_09_22_125227.mp4", "framerate": 25, "duration": 680.08, "height": 480, "width": 640, "subset": "validation"}, {"id": "P01_98", "name": "DCA6327319E6_2020_09_23_204153.mp4", "framerate": 25, "duration": 2276.76, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_99", "name": "DCA6327319E6_2020_09_24_123347.mp4", "framerate": 25, "duration": 716.08, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_100", "name": "DCA6327319E6_2020_09_24_130541.mp4", "framerate": 25, "duration": 231.88, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_101", "name": "DCA6327319E6_2020_09_26_131224.mp4", "framerate": 25, "duration": 1196.28, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_102", "name": "DCA6327319E6_2020_09_27_132642.mp4", "framerate": 25, "duration": 1948.6, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_103", "name": "DCA6327319E6_2020_09_29_125610.mp4", "framerate": 25, "duration": 1620.48, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_104", "name": "DCA6327319E6_2020_09_29_192738.mp4", "framerate": 25, "duration": 31.8, "height": 480, "width": 640, "subset": "validation"}, {"id": "P01_105", "name": "DCA6327319E6_2020_09_30_121210.mp4", "framerate": 25, "duration": 604.04, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_106", "name": "DCA6327319E6_2020_10_01_132921.mp4", "framerate": 25, "duration": 576.04, "height": 480, "width": 640, "subset": "validation"}, {"id": "P01_107", "name": "DCA6327319E6_2020_10_01_213213.mp4", "framerate": 25, "duration": 872.16, "height": 480, "width": 640, "subset": "validation"}, {"id": "P01_108", "name": "DCA6327319E6_2020_10_01_215241.mp4", "framerate": 25, "duration": 488.0, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_109", "name": "DCA6327319E6_2020_10_02_114913.mp4", "framerate": 25, "duration": 1856.56, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_110", "name": "DCA6327319E6_2020_10_05_111416.mp4", "framerate": 25, "duration": 2272.76, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_111", "name": "DCA6327319E6_2020_10_06_123705.mp4", "framerate": 25, "duration": 1032.2, "height": 480, "width": 640, "subset": "validation"}, {"id": "P01_112", "name": "DCA6327319E6_2020_10_06_142954.mp4", "framerate": 25, "duration": 580.04, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_113", "name": "DCA6327319E6_2020_10_21_202428.mp4", "framerate": 25, "duration": 7.76, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_114", "name": "DCA6327319E6_2020_10_22_124659.mp4", "framerate": 25, "duration": 1368.36, "height": 480, "width": 640, "subset": "validation"}, {"id": "P01_115", "name": "DCA6327319E6_2020_10_24_213416.mp4", "framerate": 25, "duration": 11.76, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_116", "name": "DCA6327319E6_2020_10_25_125912.mp4", "framerate": 25, "duration": 1124.28, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_117", "name": "DCA6327319E6_2020_10_27_070001.mp4", "framerate": 25, "duration": 27.8, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_118", "name": "DCA6327319E6_2020_10_27_215442.mp4", "framerate": 25, "duration": 1000.2, "height": 480, "width": 640, "subset": "validation"}, {"id": "P01_119", "name": "DCA6327319E6_2020_11_06_111514.mp4", "framerate": 25, "duration": 427.96, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_120", "name": "DCA6327319E6_2020_11_11_122445.mp4", "framerate": 25, "duration": 1248.32, "height": 480, "width": 640, "subset": "validation"}, {"id": "P01_121", "name": "DCA6327319E6_2020_11_15_123329.mp4", "framerate": 25, "duration": 415.96, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_122", "name": "DCA6327319E6_2020_11_15_135242.mp4", "framerate": 25, "duration": 475.96, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_123", "name": "DCA6327319E6_2020_11_16_130006.mp4", "framerate": 25, "duration": 652.04, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_124", "name": "DCA6327319E6_2020_11_21_135628.mp4", "framerate": 25, "duration": 1776.52, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_125", "name": "DCA6327319E6_2020_11_22_125220.mp4", "framerate": 25, "duration": 2176.72, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_126", "name": "DCA6327319E6_2020_11_23_131617.mp4", "framerate": 25, "duration": 516.0, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_127", "name": "DCA6327319E6_2020_11_28_134759.mp4", "framerate": 25, "duration": 2604.88, "height": 480, "width": 640, "subset": "validation"}, {"id": "P01_128", "name": "DCA6327319E6_2020_12_05_195534.mp4", "framerate": 25, "duration": 504.0, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_129", "name": "DCA6327319E6_2020_12_06_132242.mp4", "framerate": 25, "duration": 956.2, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_130", "name": "DCA6327319E6_2020_12_06_215157.mp4", "framerate": 25, "duration": 1204.28, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_131", "name": "DCA6327319E6_2020_12_07_110129.mp4", "framerate": 25, "duration": 1144.28, "height": 480, "width": 640, "subset": "validation"}, {"id": "P01_132", "name": "DCA6327319E6_2020_12_10_212356.mp4", "framerate": 25, "duration": 1280.32, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_133", "name": "DCA6327319E6_2020_12_11_141957.mp4", "framerate": 25, "duration": 179.84, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_134", "name": "DCA6327319E6_2020_12_13_123139.mp4", "framerate": 25, "duration": 1200.28, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_135", "name": "DCA6327319E6_2020_12_16_204142.mp4", "framerate": 25, "duration": 668.04, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_136", "name": "DCA6327319E6_2021_01_10_214656.mp4", "framerate": 25, "duration": 251.88, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_137", "name": "DCA6327319E6_2021_01_15_205125.mp4", "framerate": 25, "duration": 195.84, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_138", "name": "DCA6327319E6_2021_01_16_203355.mp4", "framerate": 25, "duration": 740.08, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_139", "name": "DCA6327319E6_2021_01_18_215559.mp4", "framerate": 25, "duration": 31.8, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_140", "name": "DCA6327319E6_2021_01_19_122652.mp4", "framerate": 25, "duration": 1228.32, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_141", "name": "DCA6327319E6_2021_01_20_121615.mp4", "framerate": 25, "duration": 167.84, "height": 480, "width": 640, "subset": "validation"}, {"id": "P01_142", "name": "DCA6327319E6_2021_01_23_135526.mp4", "framerate": 25, "duration": 1624.48, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_143", "name": "DCA6327319E6_2021_01_24_123535.mp4", "framerate": 25, "duration": 2328.8, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_144", "name": "DCA6327319E6_2021_01_29_134044.mp4", "framerate": 25, "duration": 1056.24, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_145", "name": "DCA6327319E6_2021_01_29_210448.mp4", "framerate": 25, "duration": 431.96, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_146", "name": "DCA6327319E6_2021_02_02_121049.mp4", "framerate": 25, "duration": 844.12, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_147", "name": "DCA6327319E6_2021_02_03_205636.mp4", "framerate": 25, "duration": 2016.64, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_148", "name": "DCA6327319E6_2021_02_04_200721.mp4", "framerate": 25, "duration": 920.16, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_149", "name": "DCA6327319E6_2021_02_05_204542.mp4", "framerate": 25, "duration": 720.08, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_150", "name": "DCA6327319E6_2021_02_06_133903.mp4", "framerate": 25, "duration": 776.12, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_151", "name": "DCA6327319E6_2021_02_12_131305.mp4", "framerate": 25, "duration": 279.88, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_152", "name": "DCA6327319E6_2021_02_13_131520.mp4", "framerate": 25, "duration": 1568.44, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_153", "name": "DCA6327319E6_2021_02_17_141928.mp4", "framerate": 25, "duration": 35.8, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_154", "name": "DCA6327319E6_2021_02_18_123400.mp4", "framerate": 25, "duration": 1800.56, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_155", "name": "DCA6327319E6_2021_02_20_213452.mp4", "framerate": 25, "duration": 471.96, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_156", "name": "DCA6327319E6_2021_02_21_131529.mp4", "framerate": 25, "duration": 1728.52, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_157", "name": "DCA6327319E6_2021_02_25_130813.mp4", "framerate": 25, "duration": 227.88, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_158", "name": "DCA6327319E6_2021_02_27_142036.mp4", "framerate": 25, "duration": 147.84, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_159", "name": "DCA6327319E6_2021_03_01_121204.mp4", "framerate": 25, "duration": 844.12, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_160", "name": "DCA6327319E6_2021_03_01_123210.mp4", "framerate": 25, "duration": 139.84, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_161", "name": "DCA6327319E6_2021_03_10_115932.mp4", "framerate": 25, "duration": 2032.64, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_162", "name": "DCA6327319E6_2021_03_11_213358.mp4", "framerate": 25, "duration": 500.0, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_163", "name": "DCA6327319E6_2021_03_13_123945.mp4", "framerate": 25, "duration": 139.84, "height": 480, "width": 640, "subset": "validation"}, {"id": "P01_164", "name": "DCA6327319E6_2021_03_13_130604.mp4", "framerate": 25, "duration": 988.2, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_165", "name": "DCA6327319E6_2021_03_14_122907.mp4", "framerate": 25, "duration": 1544.44, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_166", "name": "DCA6327319E6_2021_03_14_213320.mp4", "framerate": 25, "duration": 796.12, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_167", "name": "DCA6327319E6_2021_03_19_192659.mp4", "framerate": 25, "duration": 63.8, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_168", "name": "DCA6327319E6_2021_03_21_213156.mp4", "framerate": 25, "duration": 339.92, "height": 480, "width": 640, "subset": "validation"}, {"id": "P01_169", "name": "DCA6327319E6_2021_03_24_090339.mp4", "framerate": 25, "duration": 27.8, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_170", "name": "DCA6327319E6_2021_03_28_131445.mp4", "framerate": 25, "duration": 792.12, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_171", "name": "DCA6327319E6_2021_03_29_113013.mp4", "framerate": 25, "duration": 856.16, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_172", "name": "DCA6327319E6_2021_04_09_103727.mp4", "framerate": 25, "duration": 17.0, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_173", "name": "DCA6327319E6_2021_04_09_121414.mp4", "framerate": 25, "duration": 182.4, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_174", "name": "DCA6327319E6_2021_04_09_132536.mp4", "framerate": 25, "duration": 60.0, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_175", "name": "DCA6327319E6_2021_04_10_131331.mp4", "framerate": 25, "duration": 587.0, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_176", "name": "DCA6327319E6_2021_04_11_133058.mp4", "framerate": 25, "duration": 316.48, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_177", "name": "DCA6327319E6_2021_04_15_213845.mp4", "framerate": 25, "duration": 119.08, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_178", "name": "DCA6327319E6_2021_04_17_125717.mp4", "framerate": 25, "duration": 200.04, "height": 480, "width": 640, "subset": "validation"}, {"id": "P01_179", "name": "DCA6327319E6_2021_04_18_130036.mp4", "framerate": 25, "duration": 473.6, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_180", "name": "DCA6327319E6_2021_04_28_184441.mp4", "framerate": 25, "duration": 2010.36, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_181", "name": "DCA6327319E6_2021_04_28_231524.mp4", "framerate": 25, "duration": 972.6, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_182", "name": "DCA6327319E6_2021_04_29_123746.mp4", "framerate": 25, "duration": 1070.88, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_183", "name": "DCA6327319E6_2021_04_30_125643.mp4", "framerate": 25, "duration": 1833.2, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_184", "name": "DCA6327319E6_2021_05_01_134639.mp4", "framerate": 25, "duration": 1198.36, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_185", "name": "DCA6327319E6_2021_05_04_110203.mp4", "framerate": 25, "duration": 3232.04, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_186", "name": "DCA6327319E6_2021_05_05_131118.mp4", "framerate": 25, "duration": 249.0, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_187", "name": "DCA6327319E6_2021_05_06_221113.mp4", "framerate": 25, "duration": 1069.24, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_188", "name": "DCA6327319E6_2021_05_07_124918.mp4", "framerate": 25, "duration": 208.8, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_189", "name": "DCA6327319E6_2021_05_08_140019.mp4", "framerate": 25, "duration": 1519.48, "height": 480, "width": 640, "subset": "validation"}, {"id": "P01_190", "name": "DCA6327319E6_2021_05_09_125300.mp4", "framerate": 25, "duration": 2356.24, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_191", "name": "DCA6327319E6_2021_05_09_145307.mp4", "framerate": 25, "duration": 224.88, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_192", "name": "DCA6327319E6_2021_05_12_120715.mp4", "framerate": 25, "duration": 1640.2, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_193", "name": "DCA6327319E6_2021_05_12_211151.mp4", "framerate": 25, "duration": 1133.36, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_194", "name": "DCA6327319E6_2021_05_13_124342.mp4", "framerate": 25, "duration": 2315.28, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_195", "name": "DCA6327319E6_2021_05_15_122358.mp4", "framerate": 25, "duration": 1640.44, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_196", "name": "DCA6327319E6_2021_05_18_114611.mp4", "framerate": 25, "duration": 594.72, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_197", "name": "DCA6327319E6_2021_05_18_115914.mp4", "framerate": 25, "duration": 506.24, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_198", "name": "DCA6327319E6_2021_05_18_124835.mp4", "framerate": 25, "duration": 160.52, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_199", "name": "DCA6327319E6_2021_05_21_121208.mp4", "framerate": 25, "duration": 2051.28, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_200", "name": "DCA6327319E6_2021_05_22_131858.mp4", "framerate": 25, "duration": 2050.28, "height": 480, "width": 640, "subset": "training"}, {"id": "P01_201", "name": "DCA6327319E6_2021_05_23_213931.mp4", "framerate": 25, "duration": 289.2, "height": 480, "width": 640, "subset": "training"}]
+[
+	{
+		"id": "P01_1",
+		"name": "DCA6323EBFC7_2021_04_14_115220.mp4",
+		"framerate": 25,
+		"duration": 205.64,
+		"height": 480,
+		"width": 640,
+		"subset": "validation"
+	},
+	{
+		"id": "P01_2",
+		"name": "DCA6323EBFC7_2021_04_14_173514.mp4",
+		"framerate": 25,
+		"duration": 23.24,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_3",
+		"name": "DCA6323EBFC7_2021_04_15_123403.mp4",
+		"framerate": 25,
+		"duration": 311.8,
+		"height": 480,
+		"width": 640,
+		"subset": "validation"
+	},
+	{
+		"id": "P01_4",
+		"name": "DCA6323EBFC7_2021_04_16_121056.mp4",
+		"framerate": 25,
+		"duration": 157.44,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_5",
+		"name": "DCA6323EBFC7_2021_04_17_080807.mp4",
+		"framerate": 25,
+		"duration": 232.72,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_6",
+		"name": "DCA6323EBFC7_2021_04_17_124935.mp4",
+		"framerate": 25,
+		"duration": 375.56,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_7",
+		"name": "DCA6323EBFC7_2021_04_18_123145.mp4",
+		"framerate": 25,
+		"duration": 77.92,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_8",
+		"name": "DCA6323EBFC7_2021_05_01_172324.mp4",
+		"framerate": 25,
+		"duration": 53.2,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_9",
+		"name": "DCA6323EBFC7_2021_05_01_172351.mp4",
+		"framerate": 25,
+		"duration": 2106.2,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_10",
+		"name": "DCA6323EBFC7_2021_05_04_114907.mp4",
+		"framerate": 25,
+		"duration": 1704.24,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_11",
+		"name": "DCA6323EBFC7_2021_05_09_090420.mp4",
+		"framerate": 25,
+		"duration": 425.88,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_12",
+		"name": "DCA6327319BA_2020_06_24_202658.mp4",
+		"framerate": 25,
+		"duration": 179.92,
+		"height": 480,
+		"width": 640,
+		"subset": "validation"
+	},
+	{
+		"id": "P01_13",
+		"name": "DCA6327319BA_2020_09_14_152826.mp4",
+		"framerate": 25,
+		"duration": 12.52,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_14",
+		"name": "DCA6327319BA_2020_09_14_153030.mp4",
+		"framerate": 25,
+		"duration": 18.52,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_15",
+		"name": "DCA6327319BA_2020_11_22_190928.mp4",
+		"framerate": 25,
+		"duration": 231.88,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_16",
+		"name": "DCA6327319BA_2020_11_22_193518.mp4",
+		"framerate": 25,
+		"duration": 227.92,
+		"height": 480,
+		"width": 640,
+		"subset": "validation"
+	},
+	{
+		"id": "P01_17",
+		"name": "DCA6327319BA_2021_01_12_114336.mp4",
+		"framerate": 25,
+		"duration": 836.16,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_18",
+		"name": "DCA6327319BA_2021_01_18_114534.mp4",
+		"framerate": 25,
+		"duration": 1084.28,
+		"height": 480,
+		"width": 640,
+		"subset": "validation"
+	},
+	{
+		"id": "P01_19",
+		"name": "DCA6327319BA_2021_01_19_122409.mp4",
+		"framerate": 25,
+		"duration": 319.92,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_20",
+		"name": "DCA6327319BA_2021_01_20_223946.mp4",
+		"framerate": 25,
+		"duration": 115.92,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_21",
+		"name": "DCA6327319BA_2021_01_21_110822.mp4",
+		"framerate": 25,
+		"duration": 1148.36,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_22",
+		"name": "DCA6327319BA_2021_01_27_130206.mp4",
+		"framerate": 25,
+		"duration": 83.8,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_23",
+		"name": "DCA6327319BA_2021_02_02_131232.mp4",
+		"framerate": 25,
+		"duration": 187.88,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_24",
+		"name": "DCA6327319BA_2021_02_15_130416.mp4",
+		"framerate": 25,
+		"duration": 728.12,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_25",
+		"name": "DCA6327319BA_2021_02_16_111600.mp4",
+		"framerate": 25,
+		"duration": 700.08,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_26",
+		"name": "DCA6327319BA_2021_02_16_121441.mp4",
+		"framerate": 25,
+		"duration": 231.88,
+		"height": 480,
+		"width": 640,
+		"subset": "validation"
+	},
+	{
+		"id": "P01_27",
+		"name": "DCA6327319BA_2021_03_15_122016.mp4",
+		"framerate": 25,
+		"duration": 632.08,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_28",
+		"name": "DCA6327319BA_2021_03_19_121705.mp4",
+		"framerate": 25,
+		"duration": 211.84,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_29",
+		"name": "DCA6327319BA_2021_04_14_130441.mp4",
+		"framerate": 25,
+		"duration": 261.04,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_30",
+		"name": "DCA6327319E6_2020_06_23_213126.mp4",
+		"framerate": 25,
+		"duration": 231.72,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_31",
+		"name": "DCA6327319E6_2020_06_24_151242.mp4",
+		"framerate": 25,
+		"duration": 494.84,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_32",
+		"name": "DCA6327319E6_2020_06_24_152317.mp4",
+		"framerate": 25,
+		"duration": 371.96,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_33",
+		"name": "DCA6327319E6_2020_06_24_210009.mp4",
+		"framerate": 25,
+		"duration": 1993.32,
+		"height": 480,
+		"width": 640,
+		"subset": "validation"
+	},
+	{
+		"id": "P01_34",
+		"name": "DCA6327319E6_2020_06_25_205058.mp4",
+		"framerate": 25,
+		"duration": 310.68,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_35",
+		"name": "DCA6327319E6_2020_06_26_175029.mp4",
+		"framerate": 25,
+		"duration": 30.24,
+		"height": 480,
+		"width": 640,
+		"subset": "validation"
+	},
+	{
+		"id": "P01_36",
+		"name": "DCA6327319E6_2020_06_27_125617.mp4",
+		"framerate": 25,
+		"duration": 1826.2,
+		"height": 480,
+		"width": 640,
+		"subset": "validation"
+	},
+	{
+		"id": "P01_37",
+		"name": "DCA6327319E6_2020_06_28_123931.mp4",
+		"framerate": 25,
+		"duration": 1068.0,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_38",
+		"name": "DCA6327319E6_2020_06_28_132657.mp4",
+		"framerate": 25,
+		"duration": 85.16,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_39",
+		"name": "DCA6327319E6_2020_06_28_133424.mp4",
+		"framerate": 25,
+		"duration": 402.48,
+		"height": 480,
+		"width": 640,
+		"subset": "validation"
+	},
+	{
+		"id": "P01_40",
+		"name": "DCA6327319E6_2020_06_29_135034.mp4",
+		"framerate": 25,
+		"duration": 1131.08,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_41",
+		"name": "DCA6327319E6_2020_06_29_211410.mp4",
+		"framerate": 25,
+		"duration": 1243.2,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_42",
+		"name": "DCA6327319E6_2020_07_01_150313.mp4",
+		"framerate": 25,
+		"duration": 1277.16,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_43",
+		"name": "DCA6327319E6_2020_07_01_213929.mp4",
+		"framerate": 25,
+		"duration": 1427.52,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_44",
+		"name": "DCA6327319E6_2020_07_03_131231.mp4",
+		"framerate": 25,
+		"duration": 756.84,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_45",
+		"name": "DCA6327319E6_2020_07_03_211702.mp4",
+		"framerate": 25,
+		"duration": 764.64,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_46",
+		"name": "DCA6327319E6_2020_07_05_122409.mp4",
+		"framerate": 25,
+		"duration": 2614.0,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_47",
+		"name": "DCA6327319E6_2020_07_05_215936.mp4",
+		"framerate": 25,
+		"duration": 1055.12,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_48",
+		"name": "DCA6327319E6_2020_07_06_115633.mp4",
+		"framerate": 25,
+		"duration": 921.48,
+		"height": 480,
+		"width": 640,
+		"subset": "validation"
+	},
+	{
+		"id": "P01_49",
+		"name": "DCA6327319E6_2020_07_06_121426.mp4",
+		"framerate": 25,
+		"duration": 543.08,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_50",
+		"name": "DCA6327319E6_2020_07_06_210726.mp4",
+		"framerate": 25,
+		"duration": 469.64,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_51",
+		"name": "DCA6327319E6_2020_07_08_210011.mp4",
+		"framerate": 25,
+		"duration": 597.6,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_52",
+		"name": "DCA6327319E6_2020_07_11_124048.mp4",
+		"framerate": 25,
+		"duration": 91.32,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_53",
+		"name": "DCA6327319E6_2020_07_12_130111.mp4",
+		"framerate": 25,
+		"duration": 719.4,
+		"height": 480,
+		"width": 640,
+		"subset": "validation"
+	},
+	{
+		"id": "P01_54",
+		"name": "DCA6327319E6_2020_07_12_134136.mp4",
+		"framerate": 25,
+		"duration": 304.72,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_55",
+		"name": "DCA6327319E6_2020_07_12_202633.mp4",
+		"framerate": 25,
+		"duration": 982.16,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_56",
+		"name": "DCA6327319E6_2020_07_13_144555.mp4",
+		"framerate": 25,
+		"duration": 518.28,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_57",
+		"name": "DCA6327319E6_2020_07_13_214523.mp4",
+		"framerate": 25,
+		"duration": 939.76,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_58",
+		"name": "DCA6327319E6_2020_07_14_142933.mp4",
+		"framerate": 25,
+		"duration": 1377.76,
+		"height": 480,
+		"width": 640,
+		"subset": "validation"
+	},
+	{
+		"id": "P01_59",
+		"name": "DCA6327319E6_2020_07_16_123838.mp4",
+		"framerate": 25,
+		"duration": 1165.48,
+		"height": 480,
+		"width": 640,
+		"subset": "validation"
+	},
+	{
+		"id": "P01_60",
+		"name": "DCA6327319E6_2020_07_16_125653.mp4",
+		"framerate": 25,
+		"duration": 469.48,
+		"height": 480,
+		"width": 640,
+		"subset": "validation"
+	},
+	{
+		"id": "P01_61",
+		"name": "DCA6327319E6_2020_07_18_125123.mp4",
+		"framerate": 25,
+		"duration": 1751.8,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_62",
+		"name": "DCA6327319E6_2020_07_20_143028.mp4",
+		"framerate": 25,
+		"duration": 1217.24,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_63",
+		"name": "DCA6327319E6_2020_07_20_215825.mp4",
+		"framerate": 25,
+		"duration": 621.28,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_64",
+		"name": "DCA6327319E6_2020_07_21_203102.mp4",
+		"framerate": 25,
+		"duration": 2401.76,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_65",
+		"name": "DCA6327319E6_2020_07_23_213103.mp4",
+		"framerate": 25,
+		"duration": 1596.92,
+		"height": 480,
+		"width": 640,
+		"subset": "validation"
+	},
+	{
+		"id": "P01_66",
+		"name": "DCA6327319E6_2020_07_24_141647.mp4",
+		"framerate": 25,
+		"duration": 3846.36,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_67",
+		"name": "DCA6327319E6_2020_07_24_220628.mp4",
+		"framerate": 25,
+		"duration": 401.8,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_68",
+		"name": "DCA6327319E6_2020_07_26_131759.mp4",
+		"framerate": 25,
+		"duration": 2846.36,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_69",
+		"name": "DCA6327319E6_2020_07_27_215423.mp4",
+		"framerate": 25,
+		"duration": 525.16,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_70",
+		"name": "DCA6327319E6_2020_07_28_132844.mp4",
+		"framerate": 25,
+		"duration": 5708.04,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_71",
+		"name": "DCA6327319E6_2020_08_01_132127.mp4",
+		"framerate": 25,
+		"duration": 1316.84,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_72",
+		"name": "DCA6327319E6_2020_08_02_134052.mp4",
+		"framerate": 25,
+		"duration": 1597.24,
+		"height": 480,
+		"width": 640,
+		"subset": "validation"
+	},
+	{
+		"id": "P01_73",
+		"name": "DCA6327319E6_2020_08_06_134237.mp4",
+		"framerate": 25,
+		"duration": 1245.12,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_74",
+		"name": "DCA6327319E6_2020_08_09_124130.mp4",
+		"framerate": 25,
+		"duration": 2694.16,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_75",
+		"name": "DCA6327319E6_2020_08_12_123512.mp4",
+		"framerate": 25,
+		"duration": 1897.32,
+		"height": 480,
+		"width": 640,
+		"subset": "validation"
+	},
+	{
+		"id": "P01_76",
+		"name": "DCA6327319E6_2020_08_15_121638.mp4",
+		"framerate": 25,
+		"duration": 2681.8,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_77",
+		"name": "DCA6327319E6_2020_08_23_220141.mp4",
+		"framerate": 25,
+		"duration": 319.92,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_78",
+		"name": "DCA6327319E6_2020_08_24_150957.mp4",
+		"framerate": 25,
+		"duration": 271.88,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_79",
+		"name": "DCA6327319E6_2020_08_25_114449.mp4",
+		"framerate": 25,
+		"duration": 924.16,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_80",
+		"name": "DCA6327319E6_2020_08_26_121039.mp4",
+		"framerate": 25,
+		"duration": 604.04,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_81",
+		"name": "DCA6327319E6_2020_08_27_211353.mp4",
+		"framerate": 25,
+		"duration": 1316.36,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_82",
+		"name": "DCA6327319E6_2020_08_30_135152.mp4",
+		"framerate": 25,
+		"duration": 1188.28,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_83",
+		"name": "DCA6327319E6_2020_08_31_132306.mp4",
+		"framerate": 25,
+		"duration": 1524.44,
+		"height": 480,
+		"width": 640,
+		"subset": "validation"
+	},
+	{
+		"id": "P01_84",
+		"name": "DCA6327319E6_2020_09_01_132119.mp4",
+		"framerate": 25,
+		"duration": 1932.6,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_85",
+		"name": "DCA6327319E6_2020_09_02_124205.mp4",
+		"framerate": 25,
+		"duration": 3537.28,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_86",
+		"name": "DCA6327319E6_2020_09_02_204450.mp4",
+		"framerate": 25,
+		"duration": 860.16,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_87",
+		"name": "DCA6327319E6_2020_09_06_125516.mp4",
+		"framerate": 25,
+		"duration": 1492.44,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_88",
+		"name": "DCA6327319E6_2020_09_06_133156.mp4",
+		"framerate": 25,
+		"duration": 2544.88,
+		"height": 480,
+		"width": 640,
+		"subset": "validation"
+	},
+	{
+		"id": "P01_89",
+		"name": "DCA6327319E6_2020_09_07_140251.mp4",
+		"framerate": 25,
+		"duration": 1668.48,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_90",
+		"name": "DCA6327319E6_2020_09_08_141021.mp4",
+		"framerate": 25,
+		"duration": 592.04,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_91",
+		"name": "DCA6327319E6_2020_09_08_201347.mp4",
+		"framerate": 25,
+		"duration": 1044.24,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_92",
+		"name": "DCA6327319E6_2020_09_09_134727.mp4",
+		"framerate": 25,
+		"duration": 920.16,
+		"height": 480,
+		"width": 640,
+		"subset": "validation"
+	},
+	{
+		"id": "P01_93",
+		"name": "DCA6327319E6_2020_09_10_141208.mp4",
+		"framerate": 25,
+		"duration": 620.04,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_94",
+		"name": "DCA6327319E6_2020_09_10_213544.mp4",
+		"framerate": 25,
+		"duration": 560.0,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_95",
+		"name": "DCA6327319E6_2020_09_12_125845.mp4",
+		"framerate": 25,
+		"duration": 1716.52,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_96",
+		"name": "DCA6327319E6_2020_09_17_124457.mp4",
+		"framerate": 25,
+		"duration": 1308.32,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_97",
+		"name": "DCA6327319E6_2020_09_22_125227.mp4",
+		"framerate": 25,
+		"duration": 680.08,
+		"height": 480,
+		"width": 640,
+		"subset": "validation"
+	},
+	{
+		"id": "P01_98",
+		"name": "DCA6327319E6_2020_09_23_204153.mp4",
+		"framerate": 25,
+		"duration": 2276.76,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_99",
+		"name": "DCA6327319E6_2020_09_24_123347.mp4",
+		"framerate": 25,
+		"duration": 716.08,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_100",
+		"name": "DCA6327319E6_2020_09_24_130541.mp4",
+		"framerate": 25,
+		"duration": 231.88,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_101",
+		"name": "DCA6327319E6_2020_09_26_131224.mp4",
+		"framerate": 25,
+		"duration": 1196.28,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_102",
+		"name": "DCA6327319E6_2020_09_27_132642.mp4",
+		"framerate": 25,
+		"duration": 1948.6,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_103",
+		"name": "DCA6327319E6_2020_09_29_125610.mp4",
+		"framerate": 25,
+		"duration": 1620.48,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_104",
+		"name": "DCA6327319E6_2020_09_29_192738.mp4",
+		"framerate": 25,
+		"duration": 31.8,
+		"height": 480,
+		"width": 640,
+		"subset": "validation"
+	},
+	{
+		"id": "P01_105",
+		"name": "DCA6327319E6_2020_09_30_121210.mp4",
+		"framerate": 25,
+		"duration": 604.04,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_106",
+		"name": "DCA6327319E6_2020_10_01_132921.mp4",
+		"framerate": 25,
+		"duration": 576.04,
+		"height": 480,
+		"width": 640,
+		"subset": "validation"
+	},
+	{
+		"id": "P01_107",
+		"name": "DCA6327319E6_2020_10_01_213213.mp4",
+		"framerate": 25,
+		"duration": 872.16,
+		"height": 480,
+		"width": 640,
+		"subset": "validation"
+	},
+	{
+		"id": "P01_108",
+		"name": "DCA6327319E6_2020_10_01_215241.mp4",
+		"framerate": 25,
+		"duration": 488.0,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_109",
+		"name": "DCA6327319E6_2020_10_02_114913.mp4",
+		"framerate": 25,
+		"duration": 1856.56,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_110",
+		"name": "DCA6327319E6_2020_10_05_111416.mp4",
+		"framerate": 25,
+		"duration": 2272.76,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_111",
+		"name": "DCA6327319E6_2020_10_06_123705.mp4",
+		"framerate": 25,
+		"duration": 1032.2,
+		"height": 480,
+		"width": 640,
+		"subset": "validation"
+	},
+	{
+		"id": "P01_112",
+		"name": "DCA6327319E6_2020_10_06_142954.mp4",
+		"framerate": 25,
+		"duration": 580.04,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_113",
+		"name": "DCA6327319E6_2020_10_21_202428.mp4",
+		"framerate": 25,
+		"duration": 7.76,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_114",
+		"name": "DCA6327319E6_2020_10_22_124659.mp4",
+		"framerate": 25,
+		"duration": 1368.36,
+		"height": 480,
+		"width": 640,
+		"subset": "validation"
+	},
+	{
+		"id": "P01_115",
+		"name": "DCA6327319E6_2020_10_24_213416.mp4",
+		"framerate": 25,
+		"duration": 11.76,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_116",
+		"name": "DCA6327319E6_2020_10_25_125912.mp4",
+		"framerate": 25,
+		"duration": 1124.28,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_117",
+		"name": "DCA6327319E6_2020_10_27_070001.mp4",
+		"framerate": 25,
+		"duration": 27.8,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_118",
+		"name": "DCA6327319E6_2020_10_27_215442.mp4",
+		"framerate": 25,
+		"duration": 1000.2,
+		"height": 480,
+		"width": 640,
+		"subset": "validation"
+	},
+	{
+		"id": "P01_119",
+		"name": "DCA6327319E6_2020_11_06_111514.mp4",
+		"framerate": 25,
+		"duration": 427.96,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_120",
+		"name": "DCA6327319E6_2020_11_11_122445.mp4",
+		"framerate": 25,
+		"duration": 1248.32,
+		"height": 480,
+		"width": 640,
+		"subset": "validation"
+	},
+	{
+		"id": "P01_121",
+		"name": "DCA6327319E6_2020_11_15_123329.mp4",
+		"framerate": 25,
+		"duration": 415.96,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_122",
+		"name": "DCA6327319E6_2020_11_15_135242.mp4",
+		"framerate": 25,
+		"duration": 475.96,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_123",
+		"name": "DCA6327319E6_2020_11_16_130006.mp4",
+		"framerate": 25,
+		"duration": 652.04,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_124",
+		"name": "DCA6327319E6_2020_11_21_135628.mp4",
+		"framerate": 25,
+		"duration": 1776.52,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_125",
+		"name": "DCA6327319E6_2020_11_22_125220.mp4",
+		"framerate": 25,
+		"duration": 2176.72,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_126",
+		"name": "DCA6327319E6_2020_11_23_131617.mp4",
+		"framerate": 25,
+		"duration": 516.0,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_127",
+		"name": "DCA6327319E6_2020_11_28_134759.mp4",
+		"framerate": 25,
+		"duration": 2604.88,
+		"height": 480,
+		"width": 640,
+		"subset": "validation"
+	},
+	{
+		"id": "P01_128",
+		"name": "DCA6327319E6_2020_12_05_195534.mp4",
+		"framerate": 25,
+		"duration": 504.0,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_129",
+		"name": "DCA6327319E6_2020_12_06_132242.mp4",
+		"framerate": 25,
+		"duration": 956.2,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_130",
+		"name": "DCA6327319E6_2020_12_06_215157.mp4",
+		"framerate": 25,
+		"duration": 1204.28,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_131",
+		"name": "DCA6327319E6_2020_12_07_110129.mp4",
+		"framerate": 25,
+		"duration": 1144.28,
+		"height": 480,
+		"width": 640,
+		"subset": "validation"
+	},
+	{
+		"id": "P01_132",
+		"name": "DCA6327319E6_2020_12_10_212356.mp4",
+		"framerate": 25,
+		"duration": 1280.32,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_133",
+		"name": "DCA6327319E6_2020_12_11_141957.mp4",
+		"framerate": 25,
+		"duration": 179.84,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_134",
+		"name": "DCA6327319E6_2020_12_13_123139.mp4",
+		"framerate": 25,
+		"duration": 1200.28,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_135",
+		"name": "DCA6327319E6_2020_12_16_204142.mp4",
+		"framerate": 25,
+		"duration": 668.04,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_136",
+		"name": "DCA6327319E6_2021_01_10_214656.mp4",
+		"framerate": 25,
+		"duration": 251.88,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_137",
+		"name": "DCA6327319E6_2021_01_15_205125.mp4",
+		"framerate": 25,
+		"duration": 195.84,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_138",
+		"name": "DCA6327319E6_2021_01_16_203355.mp4",
+		"framerate": 25,
+		"duration": 740.08,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_139",
+		"name": "DCA6327319E6_2021_01_18_215559.mp4",
+		"framerate": 25,
+		"duration": 31.8,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_140",
+		"name": "DCA6327319E6_2021_01_19_122652.mp4",
+		"framerate": 25,
+		"duration": 1228.32,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_141",
+		"name": "DCA6327319E6_2021_01_20_121615.mp4",
+		"framerate": 25,
+		"duration": 167.84,
+		"height": 480,
+		"width": 640,
+		"subset": "validation"
+	},
+	{
+		"id": "P01_142",
+		"name": "DCA6327319E6_2021_01_23_135526.mp4",
+		"framerate": 25,
+		"duration": 1624.48,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_143",
+		"name": "DCA6327319E6_2021_01_24_123535.mp4",
+		"framerate": 25,
+		"duration": 2328.8,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_144",
+		"name": "DCA6327319E6_2021_01_29_134044.mp4",
+		"framerate": 25,
+		"duration": 1056.24,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_145",
+		"name": "DCA6327319E6_2021_01_29_210448.mp4",
+		"framerate": 25,
+		"duration": 431.96,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_146",
+		"name": "DCA6327319E6_2021_02_02_121049.mp4",
+		"framerate": 25,
+		"duration": 844.12,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_147",
+		"name": "DCA6327319E6_2021_02_03_205636.mp4",
+		"framerate": 25,
+		"duration": 2016.64,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_148",
+		"name": "DCA6327319E6_2021_02_04_200721.mp4",
+		"framerate": 25,
+		"duration": 920.16,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_149",
+		"name": "DCA6327319E6_2021_02_05_204542.mp4",
+		"framerate": 25,
+		"duration": 720.08,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_150",
+		"name": "DCA6327319E6_2021_02_06_133903.mp4",
+		"framerate": 25,
+		"duration": 776.12,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_151",
+		"name": "DCA6327319E6_2021_02_12_131305.mp4",
+		"framerate": 25,
+		"duration": 279.88,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_152",
+		"name": "DCA6327319E6_2021_02_13_131520.mp4",
+		"framerate": 25,
+		"duration": 1568.44,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_153",
+		"name": "DCA6327319E6_2021_02_17_141928.mp4",
+		"framerate": 25,
+		"duration": 35.8,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_154",
+		"name": "DCA6327319E6_2021_02_18_123400.mp4",
+		"framerate": 25,
+		"duration": 1800.56,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_155",
+		"name": "DCA6327319E6_2021_02_20_213452.mp4",
+		"framerate": 25,
+		"duration": 471.96,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_156",
+		"name": "DCA6327319E6_2021_02_21_131529.mp4",
+		"framerate": 25,
+		"duration": 1728.52,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_157",
+		"name": "DCA6327319E6_2021_02_25_130813.mp4",
+		"framerate": 25,
+		"duration": 227.88,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_158",
+		"name": "DCA6327319E6_2021_02_27_142036.mp4",
+		"framerate": 25,
+		"duration": 147.84,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_159",
+		"name": "DCA6327319E6_2021_03_01_121204.mp4",
+		"framerate": 25,
+		"duration": 844.12,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_160",
+		"name": "DCA6327319E6_2021_03_01_123210.mp4",
+		"framerate": 25,
+		"duration": 139.84,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_161",
+		"name": "DCA6327319E6_2021_03_10_115932.mp4",
+		"framerate": 25,
+		"duration": 2032.64,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_162",
+		"name": "DCA6327319E6_2021_03_11_213358.mp4",
+		"framerate": 25,
+		"duration": 500.0,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_163",
+		"name": "DCA6327319E6_2021_03_13_123945.mp4",
+		"framerate": 25,
+		"duration": 139.84,
+		"height": 480,
+		"width": 640,
+		"subset": "validation"
+	},
+	{
+		"id": "P01_164",
+		"name": "DCA6327319E6_2021_03_13_130604.mp4",
+		"framerate": 25,
+		"duration": 988.2,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_165",
+		"name": "DCA6327319E6_2021_03_14_122907.mp4",
+		"framerate": 25,
+		"duration": 1544.44,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_166",
+		"name": "DCA6327319E6_2021_03_14_213320.mp4",
+		"framerate": 25,
+		"duration": 796.12,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_167",
+		"name": "DCA6327319E6_2021_03_19_192659.mp4",
+		"framerate": 25,
+		"duration": 63.8,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_168",
+		"name": "DCA6327319E6_2021_03_21_213156.mp4",
+		"framerate": 25,
+		"duration": 339.92,
+		"height": 480,
+		"width": 640,
+		"subset": "validation"
+	},
+	{
+		"id": "P01_169",
+		"name": "DCA6327319E6_2021_03_24_090339.mp4",
+		"framerate": 25,
+		"duration": 27.8,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_170",
+		"name": "DCA6327319E6_2021_03_28_131445.mp4",
+		"framerate": 25,
+		"duration": 792.12,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_171",
+		"name": "DCA6327319E6_2021_03_29_113013.mp4",
+		"framerate": 25,
+		"duration": 856.16,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_172",
+		"name": "DCA6327319E6_2021_04_09_103727.mp4",
+		"framerate": 25,
+		"duration": 17.0,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_173",
+		"name": "DCA6327319E6_2021_04_09_121414.mp4",
+		"framerate": 25,
+		"duration": 182.4,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_174",
+		"name": "DCA6327319E6_2021_04_09_132536.mp4",
+		"framerate": 25,
+		"duration": 60.0,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_175",
+		"name": "DCA6327319E6_2021_04_10_131331.mp4",
+		"framerate": 25,
+		"duration": 587.0,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_176",
+		"name": "DCA6327319E6_2021_04_11_133058.mp4",
+		"framerate": 25,
+		"duration": 316.48,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_177",
+		"name": "DCA6327319E6_2021_04_15_213845.mp4",
+		"framerate": 25,
+		"duration": 119.08,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_178",
+		"name": "DCA6327319E6_2021_04_17_125717.mp4",
+		"framerate": 25,
+		"duration": 200.04,
+		"height": 480,
+		"width": 640,
+		"subset": "validation"
+	},
+	{
+		"id": "P01_179",
+		"name": "DCA6327319E6_2021_04_18_130036.mp4",
+		"framerate": 25,
+		"duration": 473.6,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_180",
+		"name": "DCA6327319E6_2021_04_28_184441.mp4",
+		"framerate": 25,
+		"duration": 2010.36,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_181",
+		"name": "DCA6327319E6_2021_04_28_231524.mp4",
+		"framerate": 25,
+		"duration": 972.6,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_182",
+		"name": "DCA6327319E6_2021_04_29_123746.mp4",
+		"framerate": 25,
+		"duration": 1070.88,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_183",
+		"name": "DCA6327319E6_2021_04_30_125643.mp4",
+		"framerate": 25,
+		"duration": 1833.2,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_184",
+		"name": "DCA6327319E6_2021_05_01_134639.mp4",
+		"framerate": 25,
+		"duration": 1198.36,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_185",
+		"name": "DCA6327319E6_2021_05_04_110203.mp4",
+		"framerate": 25,
+		"duration": 3232.04,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_186",
+		"name": "DCA6327319E6_2021_05_05_131118.mp4",
+		"framerate": 25,
+		"duration": 249.0,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_187",
+		"name": "DCA6327319E6_2021_05_06_221113.mp4",
+		"framerate": 25,
+		"duration": 1069.24,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_188",
+		"name": "DCA6327319E6_2021_05_07_124918.mp4",
+		"framerate": 25,
+		"duration": 208.8,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_189",
+		"name": "DCA6327319E6_2021_05_08_140019.mp4",
+		"framerate": 25,
+		"duration": 1519.48,
+		"height": 480,
+		"width": 640,
+		"subset": "validation"
+	},
+	{
+		"id": "P01_190",
+		"name": "DCA6327319E6_2021_05_09_125300.mp4",
+		"framerate": 25,
+		"duration": 2356.24,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_191",
+		"name": "DCA6327319E6_2021_05_09_145307.mp4",
+		"framerate": 25,
+		"duration": 224.88,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_192",
+		"name": "DCA6327319E6_2021_05_12_120715.mp4",
+		"framerate": 25,
+		"duration": 1640.2,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_193",
+		"name": "DCA6327319E6_2021_05_12_211151.mp4",
+		"framerate": 25,
+		"duration": 1133.36,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_194",
+		"name": "DCA6327319E6_2021_05_13_124342.mp4",
+		"framerate": 25,
+		"duration": 2315.28,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_195",
+		"name": "DCA6327319E6_2021_05_15_122358.mp4",
+		"framerate": 25,
+		"duration": 1640.44,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_196",
+		"name": "DCA6327319E6_2021_05_18_114611.mp4",
+		"framerate": 25,
+		"duration": 594.72,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_197",
+		"name": "DCA6327319E6_2021_05_18_115914.mp4",
+		"framerate": 25,
+		"duration": 506.24,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_198",
+		"name": "DCA6327319E6_2021_05_18_124835.mp4",
+		"framerate": 25,
+		"duration": 160.52,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_199",
+		"name": "DCA6327319E6_2021_05_21_121208.mp4",
+		"framerate": 25,
+		"duration": 2051.28,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_200",
+		"name": "DCA6327319E6_2021_05_22_131858.mp4",
+		"framerate": 25,
+		"duration": 2050.28,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	},
+	{
+		"id": "P01_201",
+		"name": "DCA6327319E6_2021_05_23_213931.mp4",
+		"framerate": 25,
+		"duration": 289.2,
+		"height": 480,
+		"width": 640,
+		"subset": "training"
+	}
+]
