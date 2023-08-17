@@ -73,10 +73,10 @@ def plot_histogram(annotations_file, label_info_file, args):
     plt.yticks(fontsize='20')
     plt.xticks(ticks=xticks, labels=label_names, rotation='vertical', fontsize='25')
     plt.xlim(-0.5, xticks[-1]+0.5)
-    plt.title('Verb frequency (Corrected)', fontweight='bold', fontsize='30')
+    plt.title('Verb frequency', fontweight='bold', fontsize='30')
     plt.ylabel('Frequency', fontweight='bold', fontsize='25')
     plt.xlabel('Class label', fontweight='bold', fontsize='25')
-    fig.set_size_inches(18.5, 10.5)
+    fig.set_size_inches(18.5, 8.5)
 
     if "hide_legend" not in args:
         # Plot legend
