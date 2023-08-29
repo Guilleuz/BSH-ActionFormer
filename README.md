@@ -2,32 +2,7 @@
 
 This folder contains all the scripts and data required to use BSH's cooking video dataset with the 
 [**ActionFormer**](https://github.com/happyharrycn/actionformer_release) model, a transformer-based network for action
-detection.
-
-## Folder structure
-
-### *Code* folder
-
-Contains all the code developed until now. *ActionFormer's* repository is stored in the `ActionFormer` subdirectory, the
-code has been slightly modified, mainly to output the intervals predicted by the model. Also, we have added the options
-to train and evaluate a `TemporalMaxer` model and an architecture that uses a `TemporalMaxer` encoder and a Transformer
-based decoder, organized in a U-shaped structure.
-
-The `Scripts` subdirectory includes all the auxiliary python scripts needed to process the input data, so that our videos
-can be used with _ActionFormer_, as well as feature extraction and interval plotting, among others. 
-
-### *Data* folder
-
-Contains all the action annotations for BSH's and Epic Kitchens videos as well as the features used as input for the
-model. The folder `video_annotaions` contains some extra annotations for the dataset, mainly a json file with detailed
-information of each video, two files which contain the class names associated to each of the labels, the original action
-annotations and a list with all the video names to process.
-
-Finally, the `output_intervals` folder has some intervals predicted by the model, which can be used as input for the plot script.
-
-### *Documents* folder
-
-Contains the final report for the project.
+detection, as well as a modified version of the original ActionFormer, used during the project.
 
 ## Video metadata
 The script `process-videos.py` extracts information from each video in the input folder, such as its resolution, 
