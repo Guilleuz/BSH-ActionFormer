@@ -23,7 +23,7 @@ from pandas import *
 
 # Plots a confusion matrix for the given ground truth and predicted intervals
 # Only intervals with a higher IoU to the ground truth than iou_threshold will be considered as matches
-def get_confusion_matrix(ground_truth, predictions, label_names_file, iou_threshold, title):
+def get_confusion_matrix(ground_truth, predictions, label_names_file, iou_threshold, ignore_non_gt, title):
     # Get the unique labels in both ground truth and predictions
     unique_labels = pandas.unique(ground_truth['label'].tolist() + predictions['label'].tolist())
     unique_labels_gt = pandas.unique(ground_truth['label'].tolist())
@@ -87,6 +87,13 @@ def get_confusion_matrix(ground_truth, predictions, label_names_file, iou_thresh
             for j in range(i, len(empty_columns)):
                 empty_columns[j] -= 1
 
+    # Remove predictions not in a ground-truth class (if the --ignoreNonGT flag is set)
+    if ignore_non_gt:
+        # Delete the last column until we are done
+        for i in range(0, len(unique_labels) - len(unique_labels_gt)):
+            confusion_matrix = np.delete(confusion_matrix, -1, 1)
+            unique_labels = np.delete(unique_labels, -1)
+
     # Load label names
     label_names = open(label_names_file, newline='\n')
     reader = csv.reader(label_names, delimiter=',', quotechar='|')
@@ -107,7 +114,8 @@ def get_confusion_matrix(ground_truth, predictions, label_names_file, iou_thresh
 
 # Processes and loads the input intervals, both predicted and from the ground truth
 # Only intervals with a confidence score higher than score threshold will be loaded
-def process_input(ground_truth_file, predictions_file, label_names_file, iou_threshold, score_threshold, group_by_vid):
+def process_input(ground_truth_file, predictions_file, label_names_file, iou_threshold, score_threshold, group_by_vid
+                  , ignore_non_gt):
     # Load ground truth intervals
     ground_truth = read_csv(ground_truth_file)
 
@@ -126,11 +134,12 @@ def process_input(ground_truth_file, predictions_file, label_names_file, iou_thr
         for video in video_names:
             video_ground_truth = ground_truth.get_group(video).reset_index()
             video_predictions = predictions.get_group(video).reset_index()
-            get_confusion_matrix(video_ground_truth, video_predictions, label_names_file, iou_threshold,
+            get_confusion_matrix(video_ground_truth, video_predictions, label_names_file, iou_threshold, ignore_non_gt,
                                  "Confusion Matrix, video " + video)
     else:
         # Else, plot a united confusion matrix
-        get_confusion_matrix(ground_truth, predictions, label_names_file, iou_threshold, "Confusion Matrix")
+        get_confusion_matrix(ground_truth, predictions, label_names_file, iou_threshold, ignore_non_gt,
+                             "Confusion Matrix")
 
 
 if __name__ == "__main__":
@@ -150,14 +159,17 @@ if __name__ == "__main__":
     parser.add_argument('IoUThreshold', type=float, help="A predicted interval will only be considered as "
                                                          "a match with a ground truth interval if their IoU is higher "
                                                          "than this threshold")
-    parser.add_argument('ScoreThreshold', type=float, help="Only predicted intervals with a hihger confidence score "
-                                                           "than the threshold set will be taken into account")
+    parser.add_argument('ScoreThreshold', type=float, help="Only predicted intervals with a higher confidence score "
+                                                           "then the threshold set will be taken into account")
     parser.add_argument('--groupByVideo', action='store_true', default=argparse.SUPPRESS,
                         help="If this flag is set, the confusion matrix will be obtained for each video individually.")
+    parser.add_argument('--ignoreNonGT', action='store_true', default=argparse.SUPPRESS,
+                        help="If this flag is set, any prediction with a class not present in the ground truth"
+                             "whill be ignored")
 
     # Parse the arguments
     args = parser.parse_args()
 
     # Process the inputs and call the necessary plots
     process_input(args.GroundTruthFile, args.PredictionsFile, args.LabelNames, args.IoUThreshold,
-                  args.ScoreThreshold, "groupByVideo" in args)
+                  args.ScoreThreshold, "groupByVideo" in args, "ignoreNonGT" in args)
